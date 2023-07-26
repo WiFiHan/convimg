@@ -1,9 +1,7 @@
 import "./Modal.css";
 
 
-const Modal = ({ isOpen, onClose }) => {
-
-  
+export const Modal = ({ isOpen, onClose }) => {
 
   return (
     // Rendered only when propped variable: isOpen = true

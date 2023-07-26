@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
+import { Modal } from "../../Modal";
 import "../MainBodySection.css";
 
-
 export const Section1 = () => {
-
   // The way MODAL is rendered differs from vanilla HTML
   // You have to use MODAL Component which is defined at src/components/Modal/index.jsx
 
@@ -29,9 +28,7 @@ export const Section1 = () => {
   const closeModal = () => {
     setModalOpen(false);
     console.log(isModalOpen);
-
   };
-
 
   //Each React jsx file returns HTML COMPONENTS like below
 
@@ -39,37 +36,27 @@ export const Section1 = () => {
     <div id="header-wrapper" className="flex justify-between bg-base-100">
       This is Section1: src/components/MainBodySection/Section1/index.jsx
       <div>
-      <section>
+        <section>
+          <div>
+            <div class="main_page_txt padding">
+              <h1>완벽한 사진 편집</h1>
+              <div>피드 사진과 비즈니스 사진을 간단하게 편집하세요</div>
+            </div>
+            <div class="img_upload_box">
+              <label for="imageInput" class="upload-label">
+                이미지 업로드
+              </label>
+              <input type="file" id="imageInput" accept="image/*" />
+              <div>text</div>
+            </div>
+          </div>
+        </section>
         <div>
-          <div class="main_page_txt padding">
-            <h1>완벽한 사진 편집</h1>
-            <div>피드 사진과 비즈니스 사진을 간단하게 편집하세요</div>
-          </div>
-          <div class="img_upload_box">
-            <label for="imageInput" class="upload-label">
-              이미지 업로드
-            </label>
-            <input type="file" id="imageInput" accept="image/*"/>
-            <div>text</div>
-          </div>
+          ----------------------------------------------------------------
         </div>
-      </section>
-      <div>
-      ----------------------------------------------------------------
-      </div>
-      <button class="openBtn" onClick={openModal}>Section1의 모달창 open</button>
-      
-      {isModalOpen && (
-        <div class="modal hidden">
-          <div class="bg" onClick={closeModal}></div>
-          <div class="modalBox">
-            <p>test</p>
-            <button class="closeBtn" onClick={closeModal}>✖</button>
-          </div>
-        </div>
-      )}
-      
+        <button onClick={openModal}>Open Modal</button>
 
+        <Modal isOpen={isModalOpen} onClose={closeModal} />
       </div>
     </div>
   );
