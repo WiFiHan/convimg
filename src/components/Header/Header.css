@@ -1,0 +1,74 @@
+//Below is just Example
+#header-wrapper {
+  width: 100%;
+  height: 80px;
+  padding: 10px 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+
+}
+
+.header-navbar {
+  @apply navbar;
+  justify-content: space-between;
+  width: 1150px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0%;
+  opacity: 0.7;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 18px 15px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* 그림자 효과 추가 */
+}
+
+.padding {
+  padding-top: 10%;
+}
+
+.navbar__logo i {
+  color: var(--accent-color);
+  padding-left: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.navbar__menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding-left: 0;
+}
+
+.navbar__menu li {
+  padding: 8px 30px;
+}
+
+.navbar-fixed-top{
+  position: fixed;
+}
+
+.navbar__icons {
+  list-style: none;
+  display: flex;
+  color: var(--icons-color);
+  margin: 0;
+  padding-left: 0;
+}
+
+.navbar__icons li {
+  padding: 8px 12px;
+  margin: 0;
+}

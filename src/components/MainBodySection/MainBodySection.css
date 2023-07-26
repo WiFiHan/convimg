@@ -1,0 +1,19 @@
+//Below is just Example
+#header-wrapper {
+  width: 100%;
+  height: 80px;
+  padding: 10px 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+
+}
+
+.header-navbar {
+  @apply navbar;
+  justify-content: space-between;
+  width: 1150px;
+}
