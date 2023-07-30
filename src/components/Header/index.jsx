@@ -8,31 +8,19 @@ const Header = () => {
   //Each React jsx file returns HTML COMPONENTS like below
 
   return (
-    <div id="header-wrapper" className="flex justify-between">
-
-        This is Header: src/components/Header/index.jsx
-
+    <div id="header-wrapper" className="flex justify-between bg-base-100">
+      <div class="navbar">
         <div class="nav_logo">
-          <i class="what"></i>
-          <a href=""> logo </a>
+          <a href="#">To anywhere </a>
         </div>
-
         <ul class="navbar__menu">
-          <li><a href="#">nav1</a></li>
-          <li><a href="#">nav1</a></li>
-          <li><a href="https://www.naver.com/">naver</a></li>
-          <li><a href="#">nav1</a></li>
+          <li><i href="#"></i>로그인</li>
+          <li><i href="#"></i>회원가입</li>
+          <a href="#" class="navbar__toggleBtn">
+            <i class="fas fa-hamburger"> = </i>
+          </a>
         </ul>
-
-        <ul class="navbar__icons">
-          <li><i class="fab fa-google"></i>nav2</li>
-          <li><i class="fab fa-slack"></i>nav2</li>
-        </ul>
-        
-        <a href="#" class="navbar__toggleBtn">
-          <i class="fas fa-hamburger"></i>
-        </a>
-
+      </div>
     </div>
     
   );

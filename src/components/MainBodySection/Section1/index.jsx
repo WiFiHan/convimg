@@ -3,20 +3,6 @@ import { Modal } from "../../Modal";
 import "../MainBodySection.css";
 
 export const Section1 = () => {
-  // The way MODAL is rendered differs from vanilla HTML
-  // You have to use MODAL Component which is defined at src/components/Modal/index.jsx
-
-  // const open = () => {
-  //   document.querySelector(".modal").classList.remove("hidden");
-  // }
-  // const close = () => {
-  //   document.querySelector(".modal").classList.add("hidden");
-  // }
-  // const section1Action = () => {
-  //   document.querySelector(".openBtn").addEventListener("click", open);
-  //   document.querySelector(".closeBtn").addEventListener("click", close);
-  //   document.querySelector(".bg").addEventListener("click", close);
-  // }
 
   const [isModalOpen, setModalOpen] = useState(false);
 

@@ -1,27 +1,51 @@
 import { useEffect, useState } from "react";
 import "../MainBodySection.css";
-
+import IMG from "../../../assets/images/man in front of st basil 20.jpg";
 
 export const Section2 = () => {
   //Each React jsx file returns HTML COMPONENTS like below
 
   return (
-    <div className="section">
-      This is Section2: src/components/MainBodySection/Section2/index.jsx
-      <div className="content">
-        <div  class = "side_left">
-          <h2>left</h2>
-          <h2>완벽한 사진 편집</h2>
-          <p>피드 사진과 비즈니스 사진을 간단하게 편집하세요</p>
-        </div>
-        <div class = "side_right">
-          <h2>right</h2>
-          <h2>완벽한 사진 편집</h2>
-          <p>피드 사진과 비즈니스 사진을 간단하게 편집하세요</p>
+    <main>
+      <div class="main-container-one">
+        <div class="temp-box">
+          <p class="font-size-30">배경 변환을 손쉽게!</p>
+          <br></br>
+          <p>사진과 바꾸고 싶은 배경을 입력해주면, <br></br>
+          간단하게 짧은 시간안에 변환이 가능합니다.</p>
         </div>
       </div>
 
-    </div>
+      <div class="main-container-3">
+        <div class="temp-box-3">
+          <img src={IMG} className="section-img" />
+          <p>원본</p>
+        </div>
+        <div class="temp-box-3">
+          <img src={IMG} className="section-img" />
+          <p>마스크</p>
+        </div>
+        <div class="temp-box-3">
+          <img src={IMG} className="section-img" />
+          <p>새 배경 추가</p>
+        </div>
+      </div>
+      <br></br>
+      <br></br>
+      <br></br>
+      <div class="main-container">
+        <div class="temp-box">
+          <br></br>
+          <p class="font-size-30 text_right"><br></br><br></br>다양한 배경으로 변환!</p>
+          <p class="text_right"><br></br>에펠탑, 경복궁, 콜로세움, 런던아이 등등 <br></br>
+          유명한 관광명소에 직접 가지 않아도 text prompt를 통해 <br></br>
+          구체적으로 배경의 형태를 변경할 수 있습니다.</p>
+        </div>
+        <div class="temp-box">
+          <img src={IMG} className="section-img" />
+        </div>
+      </div>
+    </main>
     
   );
 };
