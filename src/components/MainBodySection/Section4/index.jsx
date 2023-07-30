@@ -7,7 +7,9 @@ export const Section4 = () => {
 
   return (
     <div className="section">
-      This is Section4: src/components/MainBodySection/Section4/index.jsx
+      <div className="content">
+        This is Section4: src/components/MainBodySection/Section4/index.jsx
+      </div>
     </div>
   );
 };

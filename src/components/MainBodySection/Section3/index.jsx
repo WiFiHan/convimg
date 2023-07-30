@@ -10,7 +10,9 @@ export const Section3 = () => {
 
   return (
     <div className="section" style={style}>
-      This is Section3: src/components/MainBodySection/Section3/index.jsx
+      <div className="content">
+        This is Section3: src/components/MainBodySection/Section3/index.jsx
+      </div>
     </div>
   );
 };
