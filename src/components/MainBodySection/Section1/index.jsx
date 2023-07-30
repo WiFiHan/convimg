@@ -36,7 +36,7 @@ export const Section1 = () => {
         <div className="bg-img">
           <div>
             <div>
-              <div className="main-font">완벽한 사진 편집</div>
+              <div className="main-font">asdf완벽한 사진 편집</div>
               <div className="sub-font">피드 사진과 비즈니스 사진을 간단하게 편집하세요</div>
             </div>
             <div class="filebox">
