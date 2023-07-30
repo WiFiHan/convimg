@@ -31,7 +31,7 @@ export const Section1 = () => {
   //Each React jsx file returns HTML COMPONENTS like below
 
   return (
-    <div className="section" style={section}>
+    <div className="section">
       <div className="content" style={content}>
         <div className="bg-img">
           <div>
