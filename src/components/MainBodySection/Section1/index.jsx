@@ -30,33 +30,37 @@ export const Section1 = () => {
     console.log(isModalOpen);
   };
 
+  let section = {
+    background:"gray",
+  }
+
+  let content = {
+    height: 400,
+  }
+
+  let box_font = {
+    fontSize: 28,
+    backgroundColor: 'white',
+  }
   //Each React jsx file returns HTML COMPONENTS like below
 
   return (
-    <div id="header-wrapper" className="flex justify-between bg-base-100">
-      This is Section1: src/components/MainBodySection/Section1/index.jsx
-      <div>
-        <section>
+    <div className="section" style={section}>
+      <div className="content" style={content}>
+        <div className="bg-img">
           <div>
-            <div class="main_page_txt padding">
-              <h1>완벽한 사진 편집</h1>
-              <div>피드 사진과 비즈니스 사진을 간단하게 편집하세요</div>
+            <div>
+              <div className="main-font">완벽한 사진 편집</div>
+              <div className="sub-font">피드 사진과 비즈니스 사진을 간단하게 편집하세요</div>
             </div>
-            <div class="img_upload_box">
-              <label for="imageInput" class="upload-label">
-                이미지 업로드
-              </label>
-              <input type="file" id="imageInput" accept="image/*" />
-              <div>text</div>
+            <div class="filebox">
+              <label for="file" id="box-font" className="main-font">이미지 업로드</label> 
+              <input type="file" id="file"/>
             </div>
           </div>
-        </section>
-        <div>
-          ----------------------------------------------------------------
+          <button onClick={openModal}>Open Modal</button>
+          <Modal isOpen={isModalOpen} onClose={closeModal} />
         </div>
-        <button onClick={openModal}>Open Modal</button>
-
-        <Modal isOpen={isModalOpen} onClose={closeModal} />
       </div>
     </div>
   );

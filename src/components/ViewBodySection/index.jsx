@@ -6,7 +6,7 @@ export const ViewBodySection = () => {
   //Each React jsx file returns HTML COMPONENTS like below
 
   return (
-    <div id="header-wrapper" className="flex justify-between bg-base-100">
+    <div id="header-wrapper" className="flex justify-between">
       This is ViewBodySection: src/components/ViewBodySection/index.jsx
       <div>
         ----------------------------------------------------------------

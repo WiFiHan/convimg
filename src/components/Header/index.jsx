@@ -8,7 +8,7 @@ const Header = () => {
   //Each React jsx file returns HTML COMPONENTS like below
 
   return (
-    <div id="header-wrapper" className="flex justify-between bg-base-100">
+    <div id="header-wrapper" className="flex justify-between">
 
         This is Header: src/components/Header/index.jsx
 
@@ -32,10 +32,6 @@ const Header = () => {
         <a href="#" class="navbar__toggleBtn">
           <i class="fas fa-hamburger"></i>
         </a>
-
-        <div>
-        ----------------------------------------------------------------
-        </div>
 
     </div>
     

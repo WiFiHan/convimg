@@ -6,7 +6,7 @@ export const Section2 = () => {
   //Each React jsx file returns HTML COMPONENTS like below
 
   return (
-    <div id="header-wrapper" className="flex justify-between bg-base-100">
+    <div className="section">
       This is Section2: src/components/MainBodySection/Section2/index.jsx
       <section>
         <div  class = "side_left">

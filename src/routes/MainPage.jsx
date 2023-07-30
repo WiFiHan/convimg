@@ -12,36 +12,10 @@ const MainPage = () => {
   //Each React jsx file returns HTML COMPONENTS like below
   return (
     <div>
-      <div>
-        This Page corresponds to main.html: src/routes/MainPage.jsx;
-      </div>
-      <div>
-        While DEBUGGING, you can move to view.html by:
-        <Link to="/view">
-            CLICK HERE
-        </Link>
-      </div>
-      <div>
-        <div>
-        ----------------------------------------------------------------
-        </div>
-        <Section1></Section1>
-        <div>
-        ----------------------------------------------------------------
-        </div>
-        <Section2></Section2>
-        <div>
-        ----------------------------------------------------------------
-        </div>
-        <Section3></Section3>
-        <div>
-        ----------------------------------------------------------------
-        </div>
-        <Section4></Section4>
-        <div>
-        ----------------------------------------------------------------
-        </div>
-      </div>
+      <Section1></Section1>
+      <Section2></Section2>
+      <Section3></Section3>
+      <Section4></Section4>
     </div>
   );
 };

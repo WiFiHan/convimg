@@ -8,12 +8,61 @@
   align-items: center;
 
   gap: 20px;
-  background-color: rgba(0, 0, 0, 0.1);
-
+  background-color: white;
 }
 
 .header-navbar {
   @apply navbar;
   justify-content: space-between;
   width: 1150px;
+}
+
+.section {
+  padding : 100px 0;
+  text-align: center;
+}
+
+.bg-img {
+  background-image: url(../../imgs/background.jpg);
+  background-size : 100%;
+  position: absolute;
+  overflow: hidden;
+  width: 1000px;
+  height: 400px;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+  padding: 50px;
+}
+
+.content {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.filebox .upload-name {
+  display: inline-block;
+  height: 40px;
+  padding: 0 10px;
+  vertical-align: middle;
+  border: 1px solid #dddddd;
+  width: 78%;
+  color: #999999;
+}
+
+#box-font{
+  font-size: 14;
+  /* background-color: white; */
+  color: black;
+
+}
+
+.filebox input[type="file"] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
 }
