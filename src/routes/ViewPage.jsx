@@ -8,21 +8,9 @@ const ViewPage = () => {
 
   //Each React jsx file returns HTML COMPONENTS like below
   return (
-    <div>
-      <div>
-        This is view.html.
-        While DEBUGGING, you can move to main.html by:
-        <Link to="/">
-            CLICK HERE
-        </Link>
-      </div>
-
       <div>
         <ViewBodySection></ViewBodySection>
       </div>
-      
-    </div>
-    
   );
 };
 
