@@ -4,7 +4,9 @@ import "../MainBodySection.css";
 
 export const Section1 = () => {
   const [files, setFiles] = useState([])
+  const [Dragging, setDragging] = useState(false);
   const handleDrop = (event) => {
+    setDragging(false);
     event.preventDefault();
     const { files } = event.dataTransfer;
     if (files.length > 0) {
@@ -12,10 +14,14 @@ export const Section1 = () => {
     }
   }
   const handleDragOver = (event) => {
+    setDragging(true);
     event.preventDefault()
   }
-  const handleDragStart = (event) => {
-      event.dataTransfer.setData("text/plain", event.target.id)
+
+  const handleDragLeave = (event) => {
+    if (event.currentTarget.contains(event.relatedTarget)) return;
+    setDragging(false);
+    event.preventDefault()
   }
   
   const [isModalOpen, setModalOpen] = useState(false);
@@ -30,53 +36,35 @@ export const Section1 = () => {
     console.log(isModalOpen);
   };
 
-  // let box_font = {
-  //   fontSize: 28,
-  //   backgroundColor: 'white',
-  // }
-  //Each React jsx file returns HTML COMPONENTS like below
 
   return (
-    <div className="section">
+    <div className="section" onDragOver={handleDragOver} onDrop={handleDrop} onDragLeave={handleDragLeave}> 
+      <div className={Dragging ? 'uploading' : 'none'}>
+        <div className="main-font" style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)'}}>파일을 여기에 놓으세요</div>
+      </div>
       <div className="content">
         <div className="bg-img">
           <div>
             <div>
-              <div className="main-font">완벽한 사진 편집</div>
+              <div className="main-font">이미지 배경 변환기</div>
               <div className="sub-font">사진을 다양한 배경으로 바꿔보세요</div>
               <div className="sub-font">배경 변환을 위해 이미지를 업로드하세요</div>
             </div>
-            <div class="filebox" onDrop = {handleDrop} onDragOver = {handleDragOver}>
-              <div class="line" draggable="true" onDragStart={handleDragStart}>
+            <div class="filebox">
+              <div class="line">
                 <label for="file" className="box-font">이미지 업로드</label> 
                 <input type="file" id="file"/>
               </div>
             </div>
+            <ul>
+              {files.map((file, index) => (
+              <li key={index}>{file.name}</li>
+              ))}
+            </ul>
           </div>
-          <button onClick={openModal}>Open Modal</button>
-          <Modal isOpen={isModalOpen} onClose={closeModal} />
+          {/* <button onClick={openModal}>Open Modal</button>
+          <Modal isOpen={isModalOpen} onClose={closeModal} /> */}
         </div>
-        {/* <div className="d-flex justify-content-center align-content-center file-upload">
-          <div>
-            <p className="book-upload">Upload a book to start swap</p>
-            <p className="save-cost">save cost of buying new books by book swapping</p>
-            <div className="file-upload-area m-10" onDragOver={handleDragOver} onDrop={handleDrop} >
-              <div className="card-body d-flex align-items-center justify-content-center m-2 scan-div" style={{ minHeight: "372px" }} draggable = "true" onDragStart={handleDragStart}>
-                <div className='file-upload-div'>
-                  <ul>
-                    {files.map((file, index) => (
-                    <li key={index}>{file.name}</li>
-                    ))}
-                  </ul>
-                    <h5 class="card-title scan-book">Tap here to scan a book</h5>
-                    <div className="d-flex align-items-center justify-content-center" >
-                      <h5 className="isbn">ISBN format</h5>
-                    </div>
-                  </div>
-                </div>
-            </div>
-          </div>
-        </div> */}
       </div>
     </div>
   );
