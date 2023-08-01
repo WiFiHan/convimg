@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./ViewBodySection.css";
 import IMG from "../../assets/images/man in front of st basil 20.jpg";
-import { convertImage } from "../../apis/convimg";
+import { convertImage } from "../../apis/api";
 
 export const ViewBodySection = () => {
   //Assign const variable uploadedImage to "before"
@@ -10,7 +10,9 @@ export const ViewBodySection = () => {
   const [convertedImage, setConvertedImage] = useState(
     sessionStorage.getItem("convertedImage")
   );
-  const [reUploadedImage, setReUploadedImage] = useState(null);
+  const [uploadedImage, setUploadedImage] = useState(
+    sessionStorage.getItem("uploadedImage")
+  );
   const [input_content, setInputContent] = useState("");
   const [re_input_prompt, setReInputPrompt] = useState("");
 
@@ -19,7 +21,8 @@ export const ViewBodySection = () => {
     if (file) {
       const reader = new FileReader();
       reader.onload = function () {
-        const uploadedImage = reader.result;
+        const uploadingImage = reader.result;
+        setUploadedImage(uploadingImage);
         sessionStorage.setItem("uploadedImage", uploadedImage);
       };
       reader.readAsDataURL(file);
@@ -28,7 +31,7 @@ export const ViewBodySection = () => {
 
   const handleReConvertClick = () => {
     setReInputPrompt(input_content);
-    convertImage(reUploadedImage, re_input_prompt);
+    convertImage(uploadedImage, re_input_prompt);
   };
 
   const handleInputChange = (e) => {
@@ -58,7 +61,7 @@ export const ViewBodySection = () => {
 
       <div class="view-container-3">
         <div class="temp-box-3">
-          <img src={IMG} className="section-img" />
+          <img src={uploadedImage} className="section-img" />
           <p>Before</p>
         </div>
         <div class="temp-box-3">

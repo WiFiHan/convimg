@@ -1,20 +1,14 @@
 export const convertImage = async (imageSrc, imageName) => {
+  const DL_URL = "http://35.201.175.44:5000/image";
 
-  const DL_URL = "http://35.201.175.44:5000/image"
+  await request_response(imageSrc, imageName, DL_URL);
 
-  await request_response(
-    imageSrc,
-    imageName,
-    DL_URL
-  );
-  
   var convImage = sessionStorage.getItem("convertedImage");
   console.log(`convertedImage is ${convImage}`);
   window.location.href = "/view";
 
   return convImage;
-
-}
+};
 
 const request_response = async (image, prompt, api_url) => {
   var b64_image = image.split(",")[1];
@@ -45,27 +39,21 @@ const request_response = async (image, prompt, api_url) => {
       sessionStorage.setItem("convertedImage", convertedImg);
       sessionStorage.setItem("imagePrompt", prompt);
     });
-}
+};
 
 const alert_error = (msg) => {
   if (msg === "ERR_HUMAN_NOT_DETECTED") {
-    alert(
-      "YOLO: 사람을 감지하는 데 실패했습니다. 다른 이미지로 시도해주세요."
-    );
+    alert("YOLO: 사람을 감지하는 데 실패했습니다. 다른 이미지로 시도해주세요.");
   }
   if (msg === "ERR_YOLO_UNKNOWN") {
-    alert(
-      "YOLO: 알 수 없는 오류입니다. 다른 이미지로 시도해주세요."
-    );
+    alert("YOLO: 알 수 없는 오류입니다. 다른 이미지로 시도해주세요.");
   }
   if (msg === "ERR_SAM_UNKNOWN") {
-    alert(
-      "SAM: 알 수 없는 오류입니다. 다른 이미지로 시도해주세요."
-    );
+    alert("SAM: 알 수 없는 오류입니다. 다른 이미지로 시도해주세요.");
   }
   if (msg === "ERR_SD_UNKNOWN") {
     alert(
       "STABLE_DIFFUSION: 알 수 없는 오류입니다. 다른 이미지로 시도해주세요."
     );
   }
-}
+};
