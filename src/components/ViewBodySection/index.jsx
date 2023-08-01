@@ -11,6 +11,7 @@ export const ViewBodySection = () => {
     sessionStorage.getItem("convertedImage")
   );
   const [reUploadedImage, setReUploadedImage] = useState(null);
+  const [input_content, setInputContent] = useState("");
   const [re_input_prompt, setReInputPrompt] = useState("");
 
   const handleFileReUpload = (event) => {
@@ -26,12 +27,13 @@ export const ViewBodySection = () => {
   };
 
   const handleReConvertClick = () => {
+    setReInputPrompt(input_content);
     convertImage(reUploadedImage, re_input_prompt);
   };
 
   const handleInputChange = (e) => {
     const { value } = e.target;
-    setReInputPrompt(value);
+    setInputContent(value);
   };
 
   const handleDownLoadClick = () => {

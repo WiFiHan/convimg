@@ -231,12 +231,12 @@ view{
 }
 
 .input-reprompt {
-  width: 100%;
-  border: 0;
-  border-radius: 15px;
+  width: 70%;
   outline: none;
-  background-color: rgb(233, 233, 233);
   height: 18px;
+  border-radius: 25px;
+  border: 3px solid #3284FF;
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .main_page_txt{
