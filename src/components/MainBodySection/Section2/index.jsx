@@ -19,7 +19,7 @@ export const Section2 = () => {
         </div>
         
         <div className='main-container-3'>
-        <div class="temp-box-3"  style={{backgroundColor : "white",
+          <div class="temp-box-3"  style={{backgroundColor : "white",
               left : "25%", }}>
             <img src={IMG} className="section-img" />
             <p>원본</p>
