@@ -17,26 +17,27 @@
 }
 
 .section {
-  padding : 100px 0;
+  margin : 100px 0;
   text-align: center;
+  position: relative;
+  height: 400px;
 }
 
 .bg-img {
   background-image: url(../../imgs/background.jpg);
   background-size : 100%;
-  position: absolute;
   overflow: hidden;
   width: 1000px;
   height: 400px;
-  top: 44%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 0 auto;
   border-radius: 25px;
   padding: 50px;
 }
 
 .content {
-  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
 }
 
 .filebox .upload-name {
@@ -49,13 +50,6 @@
   color: #999999;
 }
 
-#box-font{
-  font-size: 14;
-  /* background-color: white; */
-  color: black;
-
-}
-
 .filebox input[type="file"] {
   position: absolute;
   width: 0;
@@ -65,11 +59,39 @@
   border: 0;
 }
 
+.filebox {
+  border-radius: 10px;
+  margin: 80px auto 0 auto;
+  background-color: white;
+  width: 300px;
+  height: 50px;
+}
+
+.line {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 main{
   background: #ffffff;
   min-height: 70px;
 }
 
+.uploading {
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  opacity: 0.8;
+}
+
+.none {
+  display: none;
+}
 
 .main-container {
   width: 60%;
@@ -261,10 +283,6 @@ main{
 
 .hidden{
   display: none;
-}
-
-.content {
-  margin-bottom: 30px;
 }
 
 .go {

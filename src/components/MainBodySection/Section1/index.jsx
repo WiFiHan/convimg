@@ -3,7 +3,27 @@ import { Modal } from "../../Modal";
 import "../MainBodySection.css";
 
 export const Section1 = () => {
+  const [files, setFiles] = useState([])
+  const [Dragging, setDragging] = useState(false);
+  const handleDrop = (event) => {
+    setDragging(false);
+    event.preventDefault();
+    const { files } = event.dataTransfer;
+    if (files.length > 0) {
+      setFiles([...files]);
+    }
+  }
+  const handleDragOver = (event) => {
+    setDragging(true);
+    event.preventDefault()
+  }
 
+  const handleDragLeave = (event) => {
+    if (event.currentTarget.contains(event.relatedTarget)) return;
+    setDragging(false);
+    event.preventDefault()
+  }
+  
   const [isModalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
@@ -16,36 +36,34 @@ export const Section1 = () => {
     console.log(isModalOpen);
   };
 
-  let section = {
-    background:"gray",
-  }
-
-  let content = {
-    height: 400,
-  }
-
-  let box_font = {
-    fontSize: 28,
-    backgroundColor: 'white',
-  }
-  //Each React jsx file returns HTML COMPONENTS like below
 
   return (
-    <div className="section" style={section}>
-      <div className="content" style={content}>
+    <div className="section" onDragOver={handleDragOver} onDrop={handleDrop} onDragLeave={handleDragLeave}> 
+      <div className={Dragging ? 'uploading' : 'none'}>
+        <div className="main-font" style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)'}}>파일을 여기에 놓으세요</div>
+      </div>
+      <div className="content">
         <div className="bg-img">
           <div>
             <div>
-              <div className="main-font">완벽한 사진 편집</div>
-              <div className="sub-font">피드 사진과 비즈니스 사진을 간단하게 편집하세요</div>
+              <div className="main-font">이미지 배경 변환기</div>
+              <div className="sub-font">사진을 다양한 배경으로 바꿔보세요</div>
+              <div className="sub-font">배경 변환을 위해 이미지를 업로드하세요</div>
             </div>
             <div class="filebox">
-              <label for="file" id="box-font" className="main-font">이미지 업로드</label> 
-              <input type="file" id="file"/>
+              <div class="line">
+                <label for="file" className="box-font">이미지 업로드</label> 
+                <input type="file" id="file"/>
+              </div>
             </div>
+            <ul>
+              {files.map((file, index) => (
+              <li key={index}>{file.name}</li>
+              ))}
+            </ul>
           </div>
-          <button onClick={openModal}>Open Modal</button>
-          <Modal isOpen={isModalOpen} onClose={closeModal} />
+          {/* <button onClick={openModal}>Open Modal</button>
+          <Modal isOpen={isModalOpen} onClose={closeModal} /> */}
         </div>
       </div>
     </div>
