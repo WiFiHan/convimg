@@ -1,5 +1,5 @@
 export const preprocessImage = async (imageSrc) => {
-  const SAM_URL = "http://35.187.148.73:5000/predictions/segmentation/";
+  const SAM_URL = "https://35.187.148.73:5000/predictions/segmentation/";
 
   await obtainMask(imageSrc, SAM_URL);
 
@@ -42,7 +42,7 @@ const obtainMask = async (image, api_url) => {
 };
 
 export const convertImage = async (imageSrc, mask, imageName) => {
-  const SD_URL = "http://35.187.148.73:5000/predictions/inpainting/";
+  const SD_URL = "https://35.187.148.73:5000/predictions/inpainting/";
 
   await obtainImage(imageSrc, mask, imageName, SD_URL);
 
