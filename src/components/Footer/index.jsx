@@ -6,7 +6,8 @@ const Footer = () => {
 
   //Each React jsx file returns HTML COMPONENTS like below
   return (
-    <footer className="layout footer p-10 bg-base-200 text-base-content">
+    <footer className="layout footer p-10 bg-base-200 text-base-content" 
+    style={{ left : "25%", transform: "translate(0%, 770%)"}}>
       <div className="footer-logos">
         <p className="footer-real-title">
           About us <br></br>
