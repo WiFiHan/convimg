@@ -1,20 +1,63 @@
-export const convertImage = async (imageSrc, imageName) => {
-  const DL_URL = "http://35.201.175.44:5000/image";
+export const preprocessImage = async (imageSrc) => {
+  const SAM_URL = "http://35.187.148.73:5000/predictions/segmentation/";
 
-  await request_response(imageSrc, imageName, DL_URL);
+  await obtainMask(imageSrc, SAM_URL);
+
+  var obtainedMask = sessionStorage.getItem("mask");
+  console.log(`obtainedMask is ${obtainedMask}`);
+  // window.location.href = "/view";
+
+  return obtainedMask;
+};
+
+const obtainMask = async (image, api_url) => {
+  var b64_image = image.split(",")[1];
+  console.log(`obtainMask: b64_image is ${b64_image}`);
+  var files = {
+    image: b64_image // b64-encoded input image
+  };
+
+  console.log("trying to request in obtainMask");
+  await fetch(api_url, {
+    
+    method: "POST",
+    body: JSON.stringify(files),
+    headers: {
+      "Content-Type": "application/json",
+    },
+    mode: 'cors'
+  })
+    .then(function (response) {
+      console.log(`I got the response of obtainMask`);
+      return response.json();
+    })
+    .then(function (resp_dict) {
+      console.log(`obtainMask resp_dict is ${resp_dict}`);
+      var b64_mask = resp_dict.b64_mask;
+      console.log(b64_mask);
+      alert_error(resp_dict.message);
+      const inferredMask = "data:image/jpeg;base64," + b64_mask;
+      sessionStorage.setItem("mask", inferredMask);
+    });
+};
+
+export const convertImage = async (imageSrc, mask, imageName) => {
+  const SD_URL = "http://35.187.148.73:5000/predictions/inpainting/";
+
+  await obtainImage(imageSrc, mask, imageName, SD_URL);
 
   var convImage = sessionStorage.getItem("convertedImage");
   console.log(`convertedImage is ${convImage}`);
-  window.location.href = "/view";
+  // window.location.href = "/view";
 
   return convImage;
 };
 
-const request_response = async (image, prompt, api_url) => {
+const obtainImage = async (image, mask, prompt, api_url) => {
   var b64_image = image.split(",")[1];
-  console.log(`b64_image is ${b64_image}`);
   var files = {
     image: b64_image, // b64-encoded input image
+    mask: mask,
     prompt: prompt, // text prompt
   };
 

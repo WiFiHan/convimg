@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./ViewBodySection.css";
 import IMG from "../../assets/images/man in front of st basil 20.jpg";
-import { convertImage } from "../../apis/api";
+import { preprocessImage, convertImage } from "../../apis/api";
 
 export const ViewBodySection = () => {
   //Assign const variable uploadedImage to "before"
@@ -31,7 +31,10 @@ export const ViewBodySection = () => {
 
   const handleReConvertClick = () => {
     setReInputPrompt(input_content);
-    convertImage(uploadedImage, re_input_prompt);
+    // convertImage(uploadedImage, re_input_prompt);
+    // preprocessImage(uploadedImage);
+    convertImage(uploadedImage, sessionStorage.getItem('mask'), "photo of man, sitting in front of beach");
+
   };
 
   const handleInputChange = (e) => {
@@ -65,7 +68,7 @@ export const ViewBodySection = () => {
           <p>Before</p>
         </div>
         <div class="temp-box-3">
-          <img src={IMG} className="section-img" />
+          <img src={sessionStorage.getItem('convertedImage')} className="section-img" />
           <p>After</p>
         </div>
       </div>
