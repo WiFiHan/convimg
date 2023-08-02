@@ -34,7 +34,6 @@ export const ViewBodySection = () => {
     // convertImage(uploadedImage, re_input_prompt);
     preprocessImage(uploadedImage);
     // convertImage(uploadedImage, sessionStorage.getItem('mask'), "photo of man, sitting in front of beach");
-
   };
 
   const handleInputChange = (e) => {
@@ -68,7 +67,10 @@ export const ViewBodySection = () => {
           <p>Before</p>
         </div>
         <div class="temp-box-3">
-          <img src={sessionStorage.getItem('convertedImage')} className="section-img" />
+          <img
+            src={sessionStorage.getItem("convertedImage")}
+            className="section-img"
+          />
           <p>After</p>
         </div>
       </div>
