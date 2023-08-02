@@ -44,9 +44,8 @@ export const Section1 = () => {
     reader.onload = async function () {
       const uploadingImage = reader.result;
       setUploadedImage(uploadingImage);
+      await preprocessImage(uploadingImage);
       sessionStorage.setItem("uploadedImage", uploadingImage);
-      console.log(uploadedImage);
-      await preprocessImage(uploadedImage);
       setIsUploaded(true);
     };
     reader.readAsDataURL(file);
