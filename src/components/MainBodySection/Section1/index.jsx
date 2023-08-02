@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Modal } from "../../Modal";
 import "../MainBodySection.css";
 import { convertImage, preprocessImage } from "../../../apis/api";
+import loadingSpinner from "../../../assets/gifs/loadingSpinner.gif"
 
 export const Section1 = () => {
   const [files, setFiles] = useState([]);
@@ -12,8 +13,17 @@ export const Section1 = () => {
   const [uploadedImage, setUploadedImage] = useState(
     sessionStorage.getItem("uploadedImage")
   );
+  const [isUploading, setIsUploading] = useState(false);
   const [isUploaded, setIsUploaded] = useState(false);
+  const [isConverting, setIsConverting] = useState(false);
+  const [isConverted, setIsConverted] = useState(false);
   const [input_content, setInputContent] = useState("");
+  
+
+  const handleInputChange = (e) => {
+    const { value } = e.target;
+    setInputContent(value);
+  };
 
   const handleDrop = (event) => {
     setDragging(false);
@@ -26,26 +36,27 @@ export const Section1 = () => {
     }
   };
 
-  const handleObtainMask = () => {
-    preprocessImage(uploadedImage);
-  };
-
   const handleConvertClick = async () => {
-    await convertImage(
+    setIsConverting(true);
+    const convertedImage = await convertImage(
       uploadedImage,
       sessionStorage.getItem("mask"),
-      "photo of man, standing on the beach"
+      input_content
     );
-    window.location.href = "/view";
+    if (convertedImage) {
+      setIsConverted(true);
+      window.location.href = "/view";
+    }
   };
 
-  const uploadFile = (file) => {
+  const uploadFile = async (file) => {
     const reader = new FileReader();
     reader.onload = async function () {
       const uploadingImage = reader.result;
-      setUploadedImage(uploadingImage);
-      await preprocessImage(uploadingImage);
       sessionStorage.setItem("uploadedImage", uploadingImage);
+      setIsUploading(true);
+      await preprocessImage(uploadingImage);
+      setUploadedImage(uploadingImage);
       setIsUploaded(true);
     };
     reader.readAsDataURL(file);
@@ -70,18 +81,6 @@ export const Section1 = () => {
     event.preventDefault();
   };
 
-  const [isModalOpen, setModalOpen] = useState(false);
-
-  const openModal = () => {
-    setModalOpen(true);
-    console.log(isModalOpen);
-  };
-
-  const closeModal = () => {
-    setModalOpen(false);
-    console.log(isModalOpen);
-  };
-
   return (
     <div
       className="section"
@@ -89,7 +88,7 @@ export const Section1 = () => {
       onDrop={handleDrop}
       onDragLeave={handleDragLeave}
     >
-      {!isUploaded ? (
+      {!isUploading ? (
         <>
           <div className={Dragging ? "uploading" : "none"}>
             <div
@@ -141,6 +140,8 @@ export const Section1 = () => {
             <div>
               <div className="main-font">이미지 배경 변환기</div>
             </div>
+
+          {!isUploaded ? (<img src={loadingSpinner} alt="loadingSpinner" />) : (<>
             <div className="container">
               <img src={uploadedImage} className="section-img" />
               <img
@@ -148,31 +149,25 @@ export const Section1 = () => {
                 className="section-img"
               />
             </div>
+
+            {isConverting && !isConverted ? (<img src={loadingSpinner} alt="loadingSpinner" />) : (<></>)}
+
             <div>
               <input
                 type="text"
                 id="text"
                 className="textbox"
                 placeholder="text prompt"
+                onChange={handleInputChange}
                 style={{ width: "900px" }}
               ></input>
             </div>
             <div className="container">
               <label for="file" className="label-upload">
-                <div
-                  className="box-font filebox"
-                  style={{ width: "250px", margin: "40px auto 0 0" }}
-                >
-                  배경 변환
-                </div>
+                <button className="box-font filebox" style={{ width: "250px", margin: "40px auto 0 0" }} onClick={handleConvertClick}>
+                    배경 변환
+                  </button>
               </label>
-              <input
-                type="file"
-                id="file"
-                style={{ display: "none" }}
-                onChange={handleConvertClick}
-              />
-
               <label for="file" className="label-upload">
                 <div className="box-font filebox" style={{ width: "250px" }}>
                   마스크 수정
@@ -184,7 +179,6 @@ export const Section1 = () => {
                 style={{ display: "none" }}
                 onChange={handleUploadClick}
               />
-
               <label for="file" className="label-upload">
                 <div
                   className="box-font filebox"
@@ -199,10 +193,11 @@ export const Section1 = () => {
                 style={{ display: "none" }}
                 onChange={handleUploadClick}
               />
-            </div>
+            </div></>)}
+
           </div>
-        </div>
-      )}
+        </div>)
+      }
     </div>
   );
 };

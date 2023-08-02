@@ -1,41 +1,39 @@
 export const preprocessImage = async (imageSrc) => {
-  const SAM_URL = "https://104.199.174.6:5000/predictions/segmentation/";
+  const SAM_URL = "http://104.199.174.6:5000/predictions/segmentation/";
 
-  
   await obtainMask(imageSrc, SAM_URL);
 
   var obtainedMask = sessionStorage.getItem("mask");
-  console.log(`obtainedMask is ${obtainedMask}`);
-  // window.location.href = "/view";
+  // console.log(`obtainedMask is ${obtainedMask}`);
+
 
   return obtainedMask;
 };
 
 const obtainMask = async (image, api_url) => {
   var b64_image = image.split(",")[1];
-  console.log(`obtainMask: b64_image is ${b64_image}`);
+  // console.log(`obtainMask: b64_image is ${b64_image}`);
   var files = {
-    image: b64_image // b64-encoded input image
+    image: b64_image, // b64-encoded input image
   };
 
-  console.log("trying to request in obtainMask");
+  // console.log("trying to request in obtainMask");
   await fetch(api_url, {
-    
     method: "POST",
     body: JSON.stringify(files),
     headers: {
       "Content-Type": "application/json",
     },
-    mode: 'cors'
+    mode: "cors",
   })
     .then(function (response) {
-      console.log(`I got the response of obtainMask`);
+      // console.log(`I got the response of obtainMask`);
       return response.json();
     })
     .then(function (resp_dict) {
-      console.log(`obtainMask resp_dict is ${resp_dict}`);
+      // console.log(`obtainMask resp_dict is ${resp_dict}`);
       var b64_mask = resp_dict.b64_mask;
-      console.log(b64_mask);
+      // console.log(b64_mask);
       alert_error(resp_dict.message);
       const inferredMask = "data:image/jpeg;base64," + b64_mask;
       sessionStorage.setItem("mask", inferredMask);
@@ -43,26 +41,33 @@ const obtainMask = async (image, api_url) => {
 };
 
 export const convertImage = async (imageSrc, mask, imageName) => {
-  const SD_URL = "https://104.199.174.6:5000/predictions/inpainting/";
+  const SD_URL = "http://104.199.174.6:5000/predictions/inpainting/";
 
   await obtainImage(imageSrc, mask, imageName, SD_URL);
 
   var convImage = sessionStorage.getItem("convertedImage");
-  console.log(`convertedImage is ${convImage}`);
-  // window.location.href = "/view";
+  // console.log(`convertedImage is ${convImage}`);
 
   return convImage;
 };
 
 const obtainImage = async (image, mask, prompt, api_url) => {
   var b64_image = image.split(",")[1];
+  var b64_mask = mask.split(",")[1];
+
+
+  // console.log(`image: ${b64_image}`);
+  // console.log(`mask: ${b64_mask}`);
+  // console.log(`prompt: ${prompt}`);
+  
+
   var files = {
     image: b64_image, // b64-encoded input image
-    mask: mask,
+    mask: b64_mask,
     prompt: prompt, // text prompt
   };
 
-  console.log("trying to request");
+  // console.log("trying to request");
   await fetch(api_url, {
     method: "POST",
     body: JSON.stringify(files),
@@ -71,13 +76,13 @@ const obtainImage = async (image, mask, prompt, api_url) => {
     },
   })
     .then(function (response) {
-      console.log(`I got the response`);
+      // console.log(`I got the response`);
       return response.json();
     })
     .then(function (resp_dict) {
-      console.log(`resp_dict is ${resp_dict}`);
+      // console.log(`resp_dict is ${resp_dict}`);
       var b64_inpainted = resp_dict.b64_inpainted;
-      console.log(`b64_inpainted is ${b64_inpainted}`);
+      // console.log(`b64_inpainted is ${b64_inpainted}`);
       alert_error(resp_dict.message);
       const convertedImg = "data:image/jpeg;base64," + b64_inpainted;
       sessionStorage.setItem("convertedImage", convertedImg);
