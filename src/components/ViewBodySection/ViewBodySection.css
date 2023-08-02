@@ -41,12 +41,12 @@
 
 .bg-img {
   background-image: url(../../imgs/background.jpg);
-  background-size: 100%;
+  background-size: cover;
   position: absolute;
   overflow: hidden;
   width: 1000px;
-  height: 400px;
-  top: 44%;
+  height: auto;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 25px;
@@ -290,10 +290,6 @@ view {
 
 .hidden {
   display: none;
-}
-
-.content {
-  margin-bottom: 30px;
 }
 
 .go {

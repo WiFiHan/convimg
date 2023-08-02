@@ -76,6 +76,7 @@ export const Section1 = () => {
           파일을 여기에 놓으세요
         </div>
       </div>
+      
       <div className="content">
         <div className="bg-img">
           <div>
@@ -86,26 +87,57 @@ export const Section1 = () => {
                 배경 변환을 위해 이미지를 업로드하세요
               </div>
             </div>
-            <div class="filebox">
-              <div class="line">
-                <label for="file" className="box-font">
-                  이미지 업로드
-                </label>
-                <input type="file" id="file" onChange={handleUploadClick} />
-              </div>
-            </div>
+            <label for="file" className="label-upload">
+              <div className="box-font filebox">이미지 업로드</div>
+            </label>
+            <input type="file" id="file" style={{display:'none'}} onChange={handleUploadClick} />
             <ul>
               {files.map((file, index) => (
                 <li key={index}>{file.name}</li>
               ))}
             </ul>
           </div>
-          {/* <button onClick={openModal}>Open Modal</button>
-          <Modal isOpen={isModalOpen} onClose={closeModal} /> */}
         </div>
       </div>
+
+      {/* <div className="content" style={{height:'650px'}}>
+        <div className="bg-img">
+
+          <div>
+            <div className="main-font">이미지 배경 변환기</div>
+          </div>
+          <div className="container">
+            <div className="result-img"></div>
+            <div className="result-img"></div>
+          </div>
+          <div>
+            <input type='text' id="text" className="textbox" placeholder="text prompt" style={{width: '900px'}}></input>
+          </div>
+          <div className="container">
+            <label for="file" className="label-upload">
+              <div className="box-font filebox" style={{width:'250px', margin:'40px auto 0 0'}}>배경 변환</div>
+            </label>
+            <input type="file" id="file" style={{display:'none'}} onChange={handleUploadClick} />
+
+            <label for="file" className="label-upload">
+              <div className="box-font filebox" style={{width:'250px'}}>마스크 수정</div>
+            </label>
+            <input type="file" id="file" style={{display:'none'}} onChange={handleUploadClick} />
+
+            <label for="file" className="label-upload">
+              <div className="box-font filebox" style={{width:'250px', margin:'40px 0 0 auto'}}>이미지 업로드</div>
+            </label>
+            <input type="file" id="file" style={{display:'none'}} onChange={handleUploadClick} />
+          </div>
+          
+        </div>
+      </div> */}
+
     </div>
   );
 };
 
 export default Section1;
+
+{/* <button onClick={openModal}>Open Modal</button>
+<Modal isOpen={isModalOpen} onClose={closeModal} /> */}
