@@ -32,8 +32,8 @@ export const ViewBodySection = () => {
   const handleReConvertClick = () => {
     setReInputPrompt(input_content);
     // convertImage(uploadedImage, re_input_prompt);
-    // preprocessImage(uploadedImage);
-    convertImage(uploadedImage, sessionStorage.getItem('mask'), "photo of man, sitting in front of beach");
+    preprocessImage(uploadedImage);
+    // convertImage(uploadedImage, sessionStorage.getItem('mask'), "photo of man, sitting in front of beach");
 
   };
 
