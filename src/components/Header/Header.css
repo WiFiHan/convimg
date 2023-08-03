@@ -19,6 +19,7 @@
 
 .navbar {
   position: fixed;
+  z-index: 100;
   top: 0%;
   opacity: 0.85;
   display: flex;

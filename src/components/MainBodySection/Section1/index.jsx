@@ -87,6 +87,7 @@ export const Section1 = () => {
       onDragOver={handleDragOver}
       onDrop={handleDrop}
       onDragLeave={handleDragLeave}
+      style={{margin: '50px 0 150px 0'}}
     >
       {!isUploading ? (
         <>
@@ -103,21 +104,77 @@ export const Section1 = () => {
               파일을 여기에 놓으세요
             </div>
           </div>
-
-          <div className="content">
+          <div style={{height:'340px'}}>
+            <div className="content">
+              <div className="bg-img">
+                <div>
+                  <div>
+                    <div className="main-font">이미지 배경 변환기</div>
+                    <div className="sub-font">
+                      사진을 다양한 배경으로 바꿔보세요
+                    </div>
+                    <div className="sub-font">
+                      배경 변환을 위해 이미지를 업로드하세요
+                    </div>
+                  </div>
+                  <label for="file" className="label-upload">
+                    <div className="box-font filebox">이미지 업로드</div>
+                  </label>
+                  <input
+                    type="file"
+                    id="file"
+                    style={{ display: "none" }}
+                    onChange={handleUploadClick}
+                  />
+                  <ul>
+                    {files.map((file, index) => (
+                      <li key={index}>{file.name}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : (
+        <div style={{height:'700px'}}>
+          <div className="content" style={{ height: "650px" }}>
             <div className="bg-img">
               <div>
-                <div>
-                  <div className="main-font">이미지 배경 변환기</div>
-                  <div className="sub-font">
-                    사진을 다양한 배경으로 바꿔보세요
-                  </div>
-                  <div className="sub-font">
-                    배경 변환을 위해 이미지를 업로드하세요
-                  </div>
-                </div>
+                <div className="main-font">이미지 배경 변환기</div>
+              </div>
+
+            {!isUploaded ? (<img src={loadingSpinner} alt="loadingSpinner" />) : (<>
+              <div className="container">
+                <img src={uploadedImage} className="section-img" />
+                <img
+                  src={sessionStorage.getItem("mask")}
+                  className="section-img"
+                />
+              </div>
+
+              {isConverting && !isConverted ? (<img src={loadingSpinner} alt="loadingSpinner" />) : (<></>)}
+
+              <div>
+                <input
+                  type="text"
+                  id="text"
+                  className="textbox"
+                  placeholder="text prompt"
+                  onChange={handleInputChange}
+                  style={{ width: "900px" }}
+                ></input>
+              </div>
+              <div className="container">
                 <label for="file" className="label-upload">
-                  <div className="box-font filebox">이미지 업로드</div>
+                  <button className="box-font filebox" style={{ width: "250px", margin: "40px auto 0 0" }} onClick={handleConvertClick}>
+                      배경 변환
+                    </button>
+                </label>
+                <label for="file" className="label-upload">
+                  <div className="box-font filebox" style={{ width: "250px" }}>
+                    마스크 수정
+                  </div>
                 </label>
                 <input
                   type="file"
@@ -125,76 +182,23 @@ export const Section1 = () => {
                   style={{ display: "none" }}
                   onChange={handleUploadClick}
                 />
-                <ul>
-                  {files.map((file, index) => (
-                    <li key={index}>{file.name}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </>
-      ) : (
-        <div className="content" style={{ height: "650px" }}>
-          <div className="bg-img">
-            <div>
-              <div className="main-font">이미지 배경 변환기</div>
-            </div>
+                <label for="file" className="label-upload">
+                  <div
+                    className="box-font filebox"
+                    style={{ width: "250px", margin: "40px 0 0 auto" }}
+                  >
+                    이미지 업로드
+                  </div>
+                </label>
+                <input
+                  type="file"
+                  id="file"
+                  style={{ display: "none" }}
+                  onChange={handleUploadClick}
+                />
+              </div></>)}
 
-          {!isUploaded ? (<img src={loadingSpinner} alt="loadingSpinner" />) : (<>
-            <div className="container">
-              <img src={uploadedImage} className="section-img" />
-              <img
-                src={sessionStorage.getItem("mask")}
-                className="section-img"
-              />
             </div>
-
-            {isConverting && !isConverted ? (<img src={loadingSpinner} alt="loadingSpinner" />) : (<></>)}
-
-            <div>
-              <input
-                type="text"
-                id="text"
-                className="textbox"
-                placeholder="text prompt"
-                onChange={handleInputChange}
-                style={{ width: "900px" }}
-              ></input>
-            </div>
-            <div className="container">
-              <label for="file" className="label-upload">
-                <button className="box-font filebox" style={{ width: "250px", margin: "40px auto 0 0" }} onClick={handleConvertClick}>
-                    배경 변환
-                  </button>
-              </label>
-              <label for="file" className="label-upload">
-                <div className="box-font filebox" style={{ width: "250px" }}>
-                  마스크 수정
-                </div>
-              </label>
-              <input
-                type="file"
-                id="file"
-                style={{ display: "none" }}
-                onChange={handleUploadClick}
-              />
-              <label for="file" className="label-upload">
-                <div
-                  className="box-font filebox"
-                  style={{ width: "250px", margin: "40px 0 0 auto" }}
-                >
-                  이미지 업로드
-                </div>
-              </label>
-              <input
-                type="file"
-                id="file"
-                style={{ display: "none" }}
-                onChange={handleUploadClick}
-              />
-            </div></>)}
-
           </div>
         </div>)
       }
