@@ -1,11 +1,10 @@
 export const preprocessImage = async (imageSrc) => {
-  const SAM_URL = "http://104.199.174.6:5000/predictions/segmentation/";
+  const SAM_URL = "http://35.229.189.225:5000/predictions/segmentation/";
 
   await obtainMask(imageSrc, SAM_URL);
 
   var obtainedMask = sessionStorage.getItem("mask");
   // console.log(`obtainedMask is ${obtainedMask}`);
-
 
   return obtainedMask;
 };
@@ -41,7 +40,7 @@ const obtainMask = async (image, api_url) => {
 };
 
 export const convertImage = async (imageSrc, mask, imageName) => {
-  const SD_URL = "http://104.199.174.6:5000/predictions/inpainting/";
+  const SD_URL = "http://35.229.189.225:5000/predictions/inpainting/";
 
   await obtainImage(imageSrc, mask, imageName, SD_URL);
 
@@ -55,11 +54,9 @@ const obtainImage = async (image, mask, prompt, api_url) => {
   var b64_image = image.split(",")[1];
   var b64_mask = mask.split(",")[1];
 
-
   // console.log(`image: ${b64_image}`);
   // console.log(`mask: ${b64_mask}`);
   // console.log(`prompt: ${prompt}`);
-  
 
   var files = {
     image: b64_image, // b64-encoded input image
