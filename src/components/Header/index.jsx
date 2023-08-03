@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import IMG from "../../assets/images/img.jpg";
+import Toggle from "../../imgs/icon_nav.png";
+import Logo from "../../imgs/tobigs.png";
 import "./Header.css";
-
+import '../../App.css';
 
 const Header = () => {
 
@@ -11,14 +12,16 @@ const Header = () => {
     <div id="header-wrapper" className="flex justify-between bg-base-100">
       <div class="navbar">
         <div class="nav_logo">
-          <a href="#">To anywhere </a>
+          <img src={Logo} style={{width : "45px", 
+                                height:"45px" , 
+                                borderRadius : "0px",
+                                }}/>
+          <a className="logo-font" href="#">&nbsp; To anywhere </a>
         </div>
         <ul class="navbar__menu">
           <li><i href="#"></i>로그인</li>
           <li><i href="#"></i>회원가입</li>
-          <a href="#" class="navbar__toggleBtn">
-            <i class="fas fa-hamburger"> = </i>
-          </a>
+          <img src={Toggle} style={{width : "25px", height:"25px" , borderRadius : "0px"}}/>
         </ul>
       </div>
     </div>

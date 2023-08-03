@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Dai+Banna+SIL:ital@1&family=Permanent+Marker&family=Solitreo&family=Tektur:wght@500&display=swap');
 
 .App {
   text-align: center;
@@ -45,6 +46,8 @@
 
 .logo-font {
   color: black;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 20px;
 }
 
 .main-font {
