@@ -63,20 +63,6 @@
   text-align: center;
 }
 
-.bg-img {
-  background-image: url(../../imgs/background.jpg);
-  background-size: 100%;
-  position: absolute;
-  overflow: hidden;
-  width: 1000px;
-  height: 400px;
-  top: 44%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 25px;
-  padding: 50px;
-}
-
 .content {
   margin: 0 auto;
 }
