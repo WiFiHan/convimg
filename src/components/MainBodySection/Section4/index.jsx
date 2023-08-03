@@ -6,9 +6,12 @@ import IMG from "../../../assets/images/man in front of st basil 20.jpg";
 // npm install --save sass
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination , Autoplay, EffectCoverflow} from "swiper";
-import "swiper/swiper.scss";
-import "swiper/components/navigation/navigation.scss";
-import "swiper/components/navigation/navigation.scss";
+// import "swiper/swiper.scss";
+// import "swiper/components/navigation/navigation.scss";
+// import "swiper/components/navigation/navigation.scss";
+import 'swiper/scss'
+import 'swiper/scss/navigation'
+import 'swiper/scss/pagination'
 SwiperCore.use([Autoplay]);
 SwiperCore.use([Navigation, Pagination])
 
