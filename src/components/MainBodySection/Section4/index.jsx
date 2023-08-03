@@ -19,9 +19,8 @@ export const Section4 = () => {
   //Each React jsx file returns HTML COMPONENTS like below
 
   return (
-    <div className='section' style={{
-    left : "0%", transform: "translate(0%, 180%)"}}>
-      <div className='content'>
+    <div className='section' style={{height:'583px'}}>
+      <div className='content' style={{width:'100%'}}>
         <div className='main-container-one'>
           <div className='temp-box'>
             <p class="font-size-30"><br></br>잘 나온 예시들을 참고하여,<br></br>

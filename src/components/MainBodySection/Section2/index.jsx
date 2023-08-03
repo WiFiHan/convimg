@@ -6,11 +6,10 @@ export const Section2 = () => {
   //Each React jsx file returns HTML COMPONENTS like below
 
   return (
-    <div className='section'>
+    <div className='section' style={{height:'591px'}}>
       <div className='content'>
         <div className='main-container-one'>
-          <div className='temp-box' style={{backgroundColor : "white",
-              left : "25%", transform: "translate(0%, -50%)"}}>
+          <div className='temp-box' style={{width:'1000px', margin:'0 auto 50px auto'}}>
             <p class="font-size-30">배경 변환을 손쉽게!</p>
             <br></br>
             <p>사진과 바꾸고 싶은 배경을 입력해주면, <br></br>
@@ -19,18 +18,15 @@ export const Section2 = () => {
         </div>
         
         <div className='main-container-3'>
-          <div class="temp-box-3"  style={{backgroundColor : "white",
-              left : "25%", }}>
+          <div class="temp-box-3">
             <img src={IMG} className="section-img" />
             <p>원본</p>
           </div>
-          <div class="temp-box-3" style={{backgroundColor : "white",
-              left : "25%", }}>
+          <div class="temp-box-3">
             <img src={IMG} className="section-img" />
             <p>마스크</p>
           </div>
-          <div class="temp-box-3" style={{backgroundColor : "white",
-              left : "25%", }}>
+          <div class="temp-box-3">
             <img src={IMG} className="section-img" />
             <p>새 배경 추가</p>
           </div>

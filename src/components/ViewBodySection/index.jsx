@@ -61,7 +61,7 @@ export const ViewBodySection = () => {
         </div>
       </div>
 
-      <div class="view-container-3">
+      <div class="main-container-2">
         <div class="temp-box-3">
           <img src={uploadedImage} className="section-img" />
           <p>Before</p>

@@ -58,11 +58,6 @@
   }
 }
 
-.section {
-  padding: 100px 0;
-  text-align: center;
-}
-
 .content {
   margin: 0 auto;
 }
@@ -199,43 +194,12 @@ view {
   margin-right: 25%;
 }
 
-.main-container-2 {
-  display: flex;
-  width: 1000px;
-  height: 400px;
-  grid-template-columns: 30% 70%; /* 각 행(세로줄)의 길이 */
-  grid-template-rows: 100%; /* 각 열(가로줄)의 길이 */
-  gap: 0%; /* 자식요소간의 간격 */
-}
-
 .view-container-3 {
   display: flex;
   width: 900px;
   grid-template-columns: 30% 30% 30%; /* 각 행(세로줄)의 길이 */
   grid-template-rows: 100%; /* 각 열(가로줄)의 길이 */
   gap: 0%; /* 자식요소간의 간격 */
-}
-
-.temp-box {
-  background: white;
-  width: 100%;
-  height: 100%;
-  /* border: 1px solid #dee3eb; */
-  text-align: center;
-}
-
-.temp-box-3 {
-  background: rgb(255, 255, 255);
-  width: 600px;
-  height: 200px;
-  margin: 10px;
-  /* border: 1px solid #dee3eb; */
-  text-align: center;
-}
-
-.font-size-30 {
-  font-size: 30px;
-  font-weight: 800;
 }
 
 .section-img {
@@ -316,8 +280,4 @@ view {
 
 .hidden {
   display: none;
-}
-
-.content {
-  margin-bottom: 30px;
 }
