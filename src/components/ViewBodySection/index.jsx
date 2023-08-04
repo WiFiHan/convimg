@@ -19,13 +19,22 @@ export const ViewBodySection = () => {
   const handleFileReUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onload = function () {
-        const uploadingImage = reader.result;
-        setUploadedImage(uploadingImage);
-        sessionStorage.setItem("uploadedImage", uploadedImage);
-      };
-      reader.readAsDataURL(file);
+      const allowedExtensions = ["png", "jpeg", "jpg"];
+      const fileName = file.name;
+      const fileExtension = fileName.split(".").pop().toLowerCase();
+  
+      if (allowedExtensions.includes(fileExtension)) {
+        const reader = new FileReader();
+        reader.onload = function () {
+          const uploadingImage = reader.result;
+          sessionStorage.setItem("uploadedImage", uploadingImage);
+          setUploadedImage(uploadingImage);
+        };
+        reader.readAsDataURL(file);
+      } else {
+        alert("png, jpeg, jpg 확장자 파일만 업로드 가능합니다.");
+        event.target.value = null;
+      }
     }
   };
 

@@ -1,7 +1,12 @@
 export const preprocessImage = async (imageSrc) => {
-  const SAM_URL = "http://35.229.189.225:5000/predictions/segmentation/";
+  const SAM_URL = "http://104.199.174.6:5000/predictions/segmentation/";
 
-  await obtainMask(imageSrc, SAM_URL);
+  try {
+    await obtainMask(imageSrc, SAM_URL);
+  } catch (error) {
+    alert("서버와 통신 중 오류가 발생했습니다.");
+    window.location.href = "/";
+  }
 
   var obtainedMask = sessionStorage.getItem("mask");
   // console.log(`obtainedMask is ${obtainedMask}`);
@@ -40,9 +45,14 @@ const obtainMask = async (image, api_url) => {
 };
 
 export const convertImage = async (imageSrc, mask, imageName) => {
-  const SD_URL = "http://35.229.189.225:5000/predictions/inpainting/";
+  const SD_URL = "http://104.199.174.6:5000/predictions/inpainting/";
 
-  await obtainImage(imageSrc, mask, imageName, SD_URL);
+  try {
+    await obtainImage(imageSrc, mask, imageName, SD_URL);
+  } catch (error) {
+    alert("서버와 통신 중 오류가 발생했습니다.");
+    window.location.href = "/";
+  }
 
   var convImage = sessionStorage.getItem("convertedImage");
   // console.log(`convertedImage is ${convImage}`);
@@ -90,16 +100,20 @@ const obtainImage = async (image, mask, prompt, api_url) => {
 const alert_error = (msg) => {
   if (msg === "ERR_HUMAN_NOT_DETECTED") {
     alert("YOLO: 사람을 감지하는 데 실패했습니다. 다른 이미지로 시도해주세요.");
+    window.location.href = "/";
   }
   if (msg === "ERR_YOLO_UNKNOWN") {
     alert("YOLO: 알 수 없는 오류입니다. 다른 이미지로 시도해주세요.");
+    window.location.href = "/";
   }
   if (msg === "ERR_SAM_UNKNOWN") {
     alert("SAM: 알 수 없는 오류입니다. 다른 이미지로 시도해주세요.");
+    window.location.href = "/";
   }
   if (msg === "ERR_SD_UNKNOWN") {
     alert(
       "STABLE_DIFFUSION: 알 수 없는 오류입니다. 다른 이미지로 시도해주세요."
     );
+    window.location.href = "/";
   }
 };
