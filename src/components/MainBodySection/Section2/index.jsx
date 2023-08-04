@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "../MainBodySection.css";
 import IMG from "../../../assets/images/man in front of st basil 20.jpg";
+import { Share } from "../../Share";
 
 export const Section2 = () => {
   //Each React jsx file returns HTML COMPONENTS like below

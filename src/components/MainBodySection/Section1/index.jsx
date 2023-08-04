@@ -3,6 +3,7 @@ import { Modal } from "../../Modal";
 import "../MainBodySection.css";
 import { convertImage, preprocessImage } from "../../../apis/api";
 import loadingSpinner from "../../../assets/gifs/loadingSpinner.gif"
+import {Share} from "../../Share"
 
 export const Section1 = () => {
   const [files, setFiles] = useState([]);
@@ -50,6 +51,17 @@ export const Section1 = () => {
   };
 
   const uploadFile = async (file) => {
+    // Check the file extension
+    const allowedExtensions = ["png", "jpeg", "jpg"];
+    const fileName = file.name;
+    const fileExtension = fileName.split(".").pop().toLowerCase();
+  
+    if (!allowedExtensions.includes(fileExtension)) {
+      alert("png, jpeg, jpg 확장자 파일만 업로드 가능합니다.");
+      setFiles([]);
+      return;
+    }
+  
     const reader = new FileReader();
     reader.onload = async function () {
       const uploadingImage = reader.result;
@@ -61,6 +73,7 @@ export const Section1 = () => {
     };
     reader.readAsDataURL(file);
   };
+
 
   const handleDragOver = (event) => {
     setDragging(true);
@@ -82,6 +95,7 @@ export const Section1 = () => {
   };
 
   return (
+    
     <div
       className="section"
       onDragOver={handleDragOver}
@@ -89,6 +103,8 @@ export const Section1 = () => {
       onDragLeave={handleDragLeave}
       style={{margin: '50px 0 150px 0'}}
     >
+      
+
       {!isUploading ? (
         <>
           <div className={Dragging ? "uploading" : "none"}>
@@ -202,6 +218,11 @@ export const Section1 = () => {
           </div>
         </div>)
       }
+      <br />
+      <br />
+      <br />
+
+      <Share convertedImage={uploadedImage}></Share>
     </div>
   );
 };
