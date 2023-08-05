@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 //import "./ViewBodySection.css";
 import "../MainBodySection/MainBodySection.css";
-import loadingSpinner from "../../../assets/gifs/loadingSpinner.gif";
+import loadingSpinner from "../../assets/gifs/loadingSpinner.gif";
 import IMG from "../../assets/images/man in front of st basil 20.jpg";
 import { preprocessImage, convertImage } from "../../apis/api";
 import { Share } from "../Share";
