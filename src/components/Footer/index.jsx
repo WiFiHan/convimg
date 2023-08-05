@@ -8,9 +8,10 @@ const Footer = () => {
   return (
     <footer className="layout footer p-10 bg-base-200 text-base-content">
       <div className="footer-logos">
-        <p className="footer-real-title">
+        <p className="footer-real-title" style={{textAlign : "center"}}>
           About us <br></br>
-          Footer:: src/components/Footer/index.jsx
+          Team leader : 이기정 <br></br>
+          memeber : 위성진, 최다희, 한진모 <br></br>
         </p>
       </div>
     </footer>
