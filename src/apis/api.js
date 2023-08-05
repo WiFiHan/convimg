@@ -1,9 +1,3 @@
-const fetch = require('node-fetch');
-const https = require('https');
-
-const httpsAgent = new https.Agent({
-      rejectUnauthorized: false,
-    });
 
 
 export const preprocessImage = async (imageSrc) => {
@@ -39,7 +33,6 @@ const obtainMask = async (image, api_url) => {
     },
     mode: "cors",
     credentials: "omit",
-    agent: httpsAgent,
   })
     .then(function (response) {
       // console.log(`I got the response of obtainMask`);
@@ -93,8 +86,8 @@ const obtainImage = async (image, mask, prompt, api_url) => {
     headers: {
       "Content-Type": "application/json",
     },
+    mode: "cors",
     credentials: "omit",
-    agent: httpsAgent,
 
   })
     .then(function (response) {
