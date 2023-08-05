@@ -1,7 +1,5 @@
-
-
 export const preprocessImage = async (imageSrc) => {
-  const SAM_URL = "https://35.236.172.236:5000/predictions/segmentation/";
+  const SAM_URL = "https://104.155.230.211:5000/predictions/segmentation/";
 
   try {
     await obtainMask(imageSrc, SAM_URL);
@@ -49,7 +47,7 @@ const obtainMask = async (image, api_url) => {
 };
 
 export const convertImage = async (imageSrc, mask, imageName) => {
-  const SD_URL = "https://35.236.172.236:5000/predictions/inpainting/";
+  const SD_URL = "https://104.155.230.211:5000/predictions/inpainting/";
 
   try {
     await obtainImage(imageSrc, mask, imageName, SD_URL);
@@ -88,7 +86,6 @@ const obtainImage = async (image, mask, prompt, api_url) => {
     },
     mode: "cors",
     credentials: "omit",
-
   })
     .then(function (response) {
       // console.log(`I got the response`);
