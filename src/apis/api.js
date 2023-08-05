@@ -6,7 +6,7 @@ export const preprocessImage = async (imageSrc) => {
   } catch (error) {
     console.log(error);
     alert("서버와 통신 중 오류가 발생했습니다.");
-    // window.location.href = "/";
+    window.location.href = "/";
   }
 
   var obtainedMask = sessionStorage.getItem("mask");
