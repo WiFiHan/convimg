@@ -112,6 +112,7 @@ export const ViewBodySection = () => {
                 </button>
               </label>
             </div>
+            <Share></Share>
           </div>
         </div>
       </div>
