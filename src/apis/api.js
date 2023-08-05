@@ -1,3 +1,11 @@
+const fetch = require('node-fetch');
+const https = require('https');
+
+const httpsAgent = new https.Agent({
+      rejectUnauthorized: false,
+    });
+
+
 export const preprocessImage = async (imageSrc) => {
   const SAM_URL = "https://35.236.172.236:5000/predictions/segmentation/";
 
@@ -31,6 +39,7 @@ const obtainMask = async (image, api_url) => {
     },
     mode: "cors",
     credentials: "omit",
+    agent: httpsAgent,
   })
     .then(function (response) {
       // console.log(`I got the response of obtainMask`);
@@ -85,6 +94,8 @@ const obtainImage = async (image, mask, prompt, api_url) => {
       "Content-Type": "application/json",
     },
     credentials: "omit",
+    agent: httpsAgent,
+
   })
     .then(function (response) {
       // console.log(`I got the response`);
