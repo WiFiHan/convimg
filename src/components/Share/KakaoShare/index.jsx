@@ -28,7 +28,7 @@ export const KakaoShareButton = () => {
               title: '배경 변환 결과',
               description: 'ToAnywhere로 이미지 배경을 바꿔보세요!',
               imageUrl:
-              '../../../../assets/images/img.jpg',
+              'https://ifh.cc/g/P3yL3m.png',
               link: {
                 mobileWebUrl: MAIN_URL,
                 webUrl: MAIN_URL,

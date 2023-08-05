@@ -41,6 +41,7 @@ export const Section1 = () => {
 
   const handleConvertClick = async () => {
     setIsConverting(true);
+    sessionStorage.setItem("inputPrompt", input_content);
     const convertedImage = await convertImage(
       uploadedImage,
       sessionStorage.getItem("mask"),
