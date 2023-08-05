@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import "../MainBodySection.css";
-import IMG from "../../../assets/images/man in front of st basil 20.jpg";
+import IMG1 from "../../../assets/images/Section2-1.jpg";
+import IMG2 from "../../../assets/images/Section2-2.jpg";
+import IMG3 from "../../../assets/images/Section2-3.jpg";
+
+
+
 import { Share } from "../../Share";
 
 export const Section2 = () => {
@@ -20,15 +25,15 @@ export const Section2 = () => {
         
         <div className='main-container-3'>
           <div class="temp-box-3">
-            <img src={IMG} className="section-img" />
+            <img src={IMG1} className="section-img" />
             <p>원본</p>
           </div>
           <div class="temp-box-3">
-            <img src={IMG} className="section-img" />
+            <img src={IMG2} className="section-img" />
             <p>마스크</p>
           </div>
           <div class="temp-box-3">
-            <img src={IMG} className="section-img" />
+            <img src={IMG3} className="section-img" />
             <p>새 배경 추가</p>
           </div>
         </div>

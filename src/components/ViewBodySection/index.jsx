@@ -85,7 +85,7 @@ export const ViewBodySection = () => {
               <p style={{margin: "0 200px 0"}}>after</p>
             </div>
             <div className='container'>
-            <p>{input_prompt}</p>
+            {/* <p>{input_prompt}</p> */}
               <input
                 type="text"
                 id="text"
