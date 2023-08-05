@@ -14,8 +14,8 @@ export const Section1 = () => {
   const [uploadedImage, setUploadedImage] = useState(
     sessionStorage.getItem("uploadedImage")
   );
-  const [isUploading, setIsUploading] = useState(true);
-  const [isUploaded, setIsUploaded] = useState(true);
+  const [isUploading, setIsUploading] = useState(false);
+  const [isUploaded, setIsUploaded] = useState(false);
   const [isConverting, setIsConverting] = useState(false);
   const [isConverted, setIsConverted] = useState(false);
   const [input_content, setInputContent] = useState("");
