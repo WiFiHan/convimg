@@ -2,8 +2,8 @@ import { useEffect, useState, useRef } from "react";
 import { Modal } from "../../Modal";
 import "../MainBodySection.css";
 import { convertImage, preprocessImage } from "../../../apis/api";
-import loadingSpinner from "../../../assets/gifs/loadingSpinner.gif"
-import {Share} from "../../Share"
+import loadingSpinner from "../../../assets/gifs/loadingSpinner.gif";
+import { Share } from "../../Share";
 
 export const Section1 = () => {
   const [files, setFiles] = useState([]);
@@ -19,9 +19,9 @@ export const Section1 = () => {
   const [isConverting, setIsConverting] = useState(false);
   const [isConverted, setIsConverted] = useState(false);
   const [input_content, setInputContent] = useState("");
-  
   const canvasRef = useRef(null);
   const [canvasTag, setCanvasTag] = useState([]);
+
 
   const handleInputChange = (e) => {
     const { value } = e.target;
@@ -57,16 +57,17 @@ export const Section1 = () => {
     const allowedExtensions = ["png", "jpeg", "jpg"];
     const fileName = file.name;
     const fileExtension = fileName.split(".").pop().toLowerCase();
-  
+
     if (!allowedExtensions.includes(fileExtension)) {
       alert("png, jpeg, jpg 확장자 파일만 업로드 가능합니다.");
       setFiles([]);
       return;
     }
-  
+
     const reader = new FileReader();
     reader.onload = async function () {
       const uploadingImage = reader.result;
+      console.log(uploadingImage);
       sessionStorage.setItem("uploadedImage", uploadingImage);
       setIsUploading(true);
       await preprocessImage(uploadingImage);
@@ -74,8 +75,8 @@ export const Section1 = () => {
       setIsUploaded(true);
     };
     reader.readAsDataURL(file);
+    console.log(reader.result);
   };
-
 
   const handleDragOver = (event) => {
     setDragging(true);
@@ -115,16 +116,13 @@ export const Section1 = () => {
 
 
   return (
-    
     <div
       className="section"
       onDragOver={handleDragOver}
       onDrop={handleDrop}
       onDragLeave={handleDragLeave}
-      style={{margin: '50px 0 150px 0'}}
+      style={{ margin: "50px 0 150px 0" }}
     >
-      
-
       {!isUploading ? (
         <>
           <div className={Dragging ? "uploading" : "none"}>
@@ -140,7 +138,7 @@ export const Section1 = () => {
               파일을 여기에 놓으세요
             </div>
           </div>
-          <div style={{height:'340px'}}>
+          <div style={{ height: "340px" }}>
             <div className="content">
               <div className="bg-img" style={{ width: '1000px'}}>
                 <div>
@@ -173,6 +171,7 @@ export const Section1 = () => {
           </div>
         </>
       ) : (
+
         <div style={{height:'700px'}}>
           <div className="content">
             <div className="bg-img">
@@ -189,8 +188,11 @@ export const Section1 = () => {
                 />
               </div>
 
-              {isConverting && !isConverted ? (<img src={loadingSpinner} alt="loadingSpinner" />) : (<></>)}
-
+                  {isConverting && !isConverted ? (
+                    <img src={loadingSpinner} alt="loadingSpinner" />
+                  ) : (
+                    <></>
+                  )}
               <div>
                 <input
                   type="text"
@@ -226,15 +228,15 @@ export const Section1 = () => {
                 />
               </div>
 
+
             </div>
           </div>
-        </div>)
-      }
+        </div>
+      )}
       <br />
       <br />
       <br />
 
-      <Share convertedImage={uploadedImage}></Share>
     </div>
   );
 };

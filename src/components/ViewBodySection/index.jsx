@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "../MainBodySection/MainBodySection.css"
 import IMG from "../../assets/images/man in front of st basil 20.jpg";
 import { preprocessImage, convertImage } from "../../apis/api";
+import {Share} from "../Share"
 
 export const ViewBodySection = () => {
   //Assign const variable uploadedImage to "before"
@@ -40,10 +41,7 @@ export const ViewBodySection = () => {
   };
 
   const handleReConvertClick = () => {
-    setReInputPrompt(input_content);
-    // convertImage(uploadedImage, re_input_prompt);
-    preprocessImage(uploadedImage);
-    // convertImage(uploadedImage, sessionStorage.getItem('mask'), "photo of man, sitting in front of beach");
+    window.location.href = '/'
   };
 
   const handleInputChange = (e) => {
@@ -118,6 +116,7 @@ export const ViewBodySection = () => {
         </div>
       </div>
     </div>
+
   );
 };
 
