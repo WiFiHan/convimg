@@ -30,6 +30,7 @@ const obtainMask = async (image, api_url) => {
       "Content-Type": "application/json",
     },
     mode: "cors",
+    credentials: "omit",
   })
     .then(function (response) {
       // console.log(`I got the response of obtainMask`);
@@ -83,6 +84,7 @@ const obtainImage = async (image, mask, prompt, api_url) => {
     headers: {
       "Content-Type": "application/json",
     },
+    credentials: "omit",
   })
     .then(function (response) {
       // console.log(`I got the response`);
