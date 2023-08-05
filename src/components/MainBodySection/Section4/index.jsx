@@ -6,12 +6,10 @@ import IMG from "../../../assets/images/man in front of st basil 20.jpg";
 // npm install --save sass
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination , Autoplay, EffectCoverflow} from "swiper";
-// import "swiper/swiper.scss";
-// import "swiper/components/navigation/navigation.scss";
-// import "swiper/components/navigation/navigation.scss";
+
 import 'swiper/scss'
 import 'swiper/scss/navigation'
-import 'swiper/scss/pagination'
+
 SwiperCore.use([Autoplay]);
 SwiperCore.use([Navigation, Pagination])
 
@@ -30,21 +28,37 @@ export const Section4 = () => {
               spaceBetween={50}
               slidesPerView={1}
               loop = {true}
-              pagination={{ clickable: true }}
+              pagination={{ clickable: false }}
               autoplay={{ delay: 3000,
                 disableOnInteraction: false }}	// 추가
             >
-              <SwiperSlide><img src={IMG} className="section-img" />
-              <p>slide1, </p>
+              <SwiperSlide>
+                <div className="container" style={{width:'630px', margin: '0 auto'}}>
+                  <img src={IMG} className="section-img" />
+                  <img src={IMG} className="section-img" />
+                </div>
+                <p className="box-font">photo of person1, standing ~~</p>
               </SwiperSlide>
-              <SwiperSlide><img src={IMG} className="section-img" />
-              <p>slide2, </p>
+              <SwiperSlide>
+                <div className="container" style={{width:'630px', margin: '0 auto'}}>
+                    <img src={IMG} className="section-img" />
+                    <img src={IMG} className="section-img" />
+                </div>
+                <p className="box-font">photo of person2, standing ~~</p>
               </SwiperSlide>
-              <SwiperSlide><img src={IMG} className="section-img" />
-              <p>slide3, </p>
+              <SwiperSlide>
+                <div className="container" style={{width:'630px', margin: '0 auto'}}>
+                  <img src={IMG} className="section-img" />
+                  <img src={IMG} className="section-img" />
+                </div>
+                <p className="box-font">photo of person3, standing ~~</p>
               </SwiperSlide>
-              <SwiperSlide><img src={IMG} className="section-img" />
-              <p>slide4</p>
+              <SwiperSlide>
+                <div className="container" style={{width:'630px', margin: '0 auto'}}>
+                  <img src={IMG} className="section-img" />
+                  <img src={IMG} className="section-img" />
+                </div>
+                <p className="box-font">photo of person4, standing ~~</p>
               </SwiperSlide>
             </Swiper>
           </div>

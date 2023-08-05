@@ -9,7 +9,7 @@ function App() {
 
 
   return (
-    <div className="app">
+    <div className="app" style={{overflow: 'auto'}}>
       <link
         href="https://cdn.jsdelivr.net/npm/daisyui@3.2.1/dist/full.css"
         rel="stylesheet"

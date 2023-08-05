@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Modal } from "../../Modal";
 import "../MainBodySection.css";
 import { convertImage, preprocessImage } from "../../../apis/api";
@@ -19,6 +19,9 @@ export const Section1 = () => {
   const [isConverting, setIsConverting] = useState(false);
   const [isConverted, setIsConverted] = useState(false);
   const [input_content, setInputContent] = useState("");
+  const canvasRef = useRef(null);
+  const [canvasTag, setCanvasTag] = useState([]);
+
 
   const handleInputChange = (e) => {
     const { value } = e.target;
@@ -94,6 +97,24 @@ export const Section1 = () => {
     event.preventDefault();
   };
 
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+
+    const ctx = canvasRef.current.getContext("2d");
+    const image = new Image();
+    image.src = uploadedImage;
+    image.onload = function() {
+      ctx.drawImage(image, -50, 0);
+    };
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+
   return (
     <div
       className="section"
@@ -119,7 +140,7 @@ export const Section1 = () => {
           </div>
           <div style={{ height: "340px" }}>
             <div className="content">
-              <div className="bg-img">
+              <div className="bg-img" style={{ width: '1000px'}}>
                 <div>
                   <div>
                     <div className="main-font">이미지 배경 변환기</div>
@@ -150,82 +171,64 @@ export const Section1 = () => {
           </div>
         </>
       ) : (
-        <div style={{ height: "700px" }}>
-          <div className="content" style={{ height: "650px" }}>
+
+        <div style={{height:'700px'}}>
+          <div className="content">
             <div className="bg-img">
               <div>
                 <div className="main-font">이미지 배경 변환기</div>
               </div>
 
-              {!isUploaded ? (
-                <img src={loadingSpinner} alt="loadingSpinner" />
-              ) : (
-                <>
-                  <div className="container">
-                    <img src={uploadedImage} className="section-img" />
-                    <img
-                      src={sessionStorage.getItem("mask")}
-                      className="section-img"
-                    />
-                  </div>
+            {!isUploaded ? (<img src={loadingSpinner} alt="loadingSpinner" style={{margin: '0 auto 0 auto'}}/>) : (<>
+              <div className="container">
+                <img src={uploadedImage} className="section-img" />
+                <img
+                  src={sessionStorage.getItem("mask")}
+                  className="section-img"
+                />
+              </div>
 
                   {isConverting && !isConverted ? (
                     <img src={loadingSpinner} alt="loadingSpinner" />
                   ) : (
                     <></>
                   )}
+              <div>
+                <input
+                  type="text"
+                  id="text"
+                  className="textbox"
+                  placeholder="text prompt"
+                  onChange={handleInputChange}
+                  style={{ width: "900px" }}
+                ></input>
+              </div></>)}
+              <div className="container">
+                <label for="file" className="label-upload">
+                  <button className="box-font filebox" onClick={handleConvertClick}>
+                      배경 변환
+                  </button>
+                </label>
+                <input
+                  type="file"
+                  id="file"
+                  style={{ display: "none" }}
+                  onChange={handleUploadClick}
+                />
+                <label for="file" className="label-upload">
+                  <div className="box-font filebox" >
+                    이미지 업로드
+                  </div>
+                </label>
+                <input
+                  type="file"
+                  id="file"
+                  style={{ display: "none" }}
+                  onChange={handleUploadClick}
+                />
+              </div>
 
-                  <div>
-                    <input
-                      type="text"
-                      id="text"
-                      className="textbox"
-                      placeholder="text prompt"
-                      onChange={handleInputChange}
-                      style={{ width: "900px" }}
-                    ></input>
-                  </div>
-                  <div className="container">
-                    <label for="file" className="label-upload">
-                      <button
-                        className="box-font filebox"
-                        style={{ width: "250px", margin: "40px auto 0 0" }}
-                        onClick={handleConvertClick}
-                      >
-                        배경 변환
-                      </button>
-                    </label>
-                    <label for="file" className="label-upload">
-                      <div
-                        className="box-font filebox"
-                        style={{ width: "250px" }}
-                      >
-                        마스크 수정
-                      </div>
-                    </label>
-                    <input
-                      type="file"
-                      id="file"
-                      style={{ display: "none" }}
-                      onChange={handleUploadClick}
-                    />
-                    <label for="file" className="label-upload">
-                      <div
-                        className="box-font filebox"
-                        style={{ width: "250px", margin: "40px 0 0 auto" }}
-                      >
-                        이미지 업로드
-                      </div>
-                    </label>
-                    <input
-                      type="file"
-                      id="file"
-                      style={{ display: "none" }}
-                      onChange={handleUploadClick}
-                    />
-                  </div>
-                </>
-              )}
+
             </div>
           </div>
         </div>
@@ -239,8 +242,3 @@ export const Section1 = () => {
 };
 
 export default Section1;
-
-{
-  /* <button onClick={openModal}>Open Modal</button>
-<Modal isOpen={isModalOpen} onClose={closeModal} /> */
-}
