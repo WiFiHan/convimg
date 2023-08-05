@@ -1,5 +1,5 @@
 export const preprocessImage = async (imageSrc) => {
-  const SAM_URL = "https://www.toanywhere.xyz:5000/predictions/segmentation/";
+  const SAM_URL = "https://toanywhere.xyz:5000/predictions/segmentation/";
 
   try {
     await obtainMask(imageSrc, SAM_URL);
@@ -47,7 +47,7 @@ const obtainMask = async (image, api_url) => {
 };
 
 export const convertImage = async (imageSrc, mask, imageName) => {
-  const SD_URL = "https://www.toanywhere.xyz:5000/predictions/segmentation/";
+  const SD_URL = "https://toanywhere.xyz:5000/predictions/segmentation/";
 
   try {
     await obtainImage(imageSrc, mask, imageName, SD_URL);
