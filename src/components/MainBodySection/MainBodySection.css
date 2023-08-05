@@ -26,7 +26,7 @@
   background-image: url(../../imgs/background.jpg);
   background-size : cover;
   overflow: hidden;
-  width: 1000px;
+  /* width: 1000px; */
   height: auto;
   margin: 0 auto;
   border-radius: 25px;
@@ -49,8 +49,7 @@
 .label-upload {
   cursor: pointer;
   display: block;
-  width:300px;
-  margin: 0 auto 0 auto;
+  /* margin: 0 auto 0 auto; */
 }
 
 .content {
@@ -91,7 +90,7 @@
   background-color: white;
   opacity: 0.5;
   transition: opacity 0.3s ease-out 100ms;
-  width: 300px;
+  width: 418px;
   height: 50px;
   display: flex;
   align-items: center;
