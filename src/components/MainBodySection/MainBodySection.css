@@ -38,6 +38,11 @@
   justify-content: space-between;
 }
 
+.container-slide {
+  display: flex;
+  justify-content: center;
+}
+
 .result-img{
   width: 400px;
   height: 400px;
@@ -322,11 +327,11 @@ main{
   padding: 8px 13px;
   border-radius: 28vh;
   cursor: pointer;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* 洹몃┝�� �④낵 異붽� */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* 洹몃┝    ④낵 異붽  */
 }
 
 .upload-label:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* 留덉슦�� �몃쾭 �� 洹몃┝�� �④낵 媛뺥솕 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* 留덉슦    몃쾭    洹몃┝    ④낵 媛뺥솕 */
 }
 
 .hidden{

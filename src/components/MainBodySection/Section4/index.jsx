@@ -59,8 +59,8 @@ export const Section4 = () => {
             >
               <SwiperSlide>
                 <div
-                  className="container"
-                  style={{ width: "630px", margin: "0 auto" }}
+                  className="container-slide"
+                  style={{ width: "578px", margin: "0 auto" }}
                 >
                   <img src={IMG10} className="section-img" />
                   <img src={IMG12} className="section-img" />
@@ -71,24 +71,8 @@ export const Section4 = () => {
               </SwiperSlide>
               <SwiperSlide>
                 <div
-                  className="container"
-                  style={{
-                    width: "530px",
-                    margin: "0 auto",
-                    marginRight: "750px",
-                  }}
-                >
-                  <img src={IMG4} className="section-img" />
-                  <img src={IMG6} className="section-img" />
-                </div>
-                <p className="box-font">
-                  photo of woman, sitting in front of colosseum
-                </p>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div
-                  className="container"
-                  style={{ width: "630px", margin: "0 auto" }}
+                  className="container-slide"
+                  style={{ width: "578px", margin: "0 auto" }}
                 >
                   <img src={IMG7} className="section-img" />
                   <img src={IMG9} className="section-img" />
@@ -99,8 +83,8 @@ export const Section4 = () => {
               </SwiperSlide>
               <SwiperSlide>
                 <div
-                  className="container"
-                  style={{ width: "630px", margin: "0 auto" }}
+                  className="container-slide"
+                  style={{ width: "578px", margin: "0 auto" }}
                 >
                   <img src={IMG1} className="section-img" />
                   <img src={IMG3} className="section-img" />
