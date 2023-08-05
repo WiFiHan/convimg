@@ -11,7 +11,7 @@ import {
 } from "react-share";
 
 export const Share = ({ imageUrl }) => {
-  const currentUrl = "http://localhost:3000";
+  const currentUrl = "https://web-convimg-7xwyjq992llizmajzo.sel4.cloudtype.app/";
 
   return (
     // Rendered only when propped variable: isOpen = true
