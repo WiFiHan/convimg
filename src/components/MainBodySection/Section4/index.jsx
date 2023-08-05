@@ -58,7 +58,7 @@ export const Section4 = () => {
                 <p className="box-font">photo of person1, standing ~~</p>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="container" style={{width:'630px', margin: '0 auto'}}>
+                <div className="container" style={{width:'530px', margin: '0 auto', marginRight: "750px",}}>
                     <img src={IMG4} className="section-img" />
                     <img src={IMG6} className="section-img" />
                 </div>
