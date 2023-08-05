@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { Modal } from "../../Modal";
 import "../MainBodySection.css";
 import { convertImage, preprocessImage } from "../../../apis/api";
-import loadingSpinner from "../../../assets/gifs/loadingspinner2.gif";
+import loadingSpinner from "../../../assets/gifs/loadingSpinner.gif";
 import { Share } from "../../Share";
 
 export const Section1 = () => {
@@ -14,8 +14,8 @@ export const Section1 = () => {
   const [uploadedImage, setUploadedImage] = useState(
     sessionStorage.getItem("uploadedImage")
   );
-  const [isUploading, setIsUploading] = useState(false);
-  const [isUploaded, setIsUploaded] = useState(false);
+  const [isUploading, setIsUploading] = useState(true);
+  const [isUploaded, setIsUploaded] = useState(true);
   const [isConverting, setIsConverting] = useState(false);
   const [isConverted, setIsConverted] = useState(false);
   const [input_content, setInputContent] = useState("");
@@ -153,7 +153,7 @@ export const Section1 = () => {
                     </div>
                   </div>
                   <label for="file" className="label-upload">
-                    <div className="box-font filebox">이미지 업로드</div>
+                    <div className="box-font filebox" style={{margin:'40px auto 0 auto'}}>이미지 업로드</div>
                   </label>
                   <input
                     type="file"
@@ -180,7 +180,7 @@ export const Section1 = () => {
                 <div className="main-font">이미지 배경 변환기</div>
               </div>
 
-            {!isUploaded ? (<img src={loadingSpinner} alt="loadingSpinner" style={{width : "100px", height: "100px", margin: '0 auto 0 auto'}}/>) : (<>
+            {!isUploaded ? (<img src={loadingSpinner} alt="loadingSpinner" style={{margin: '0 auto 0 auto'}}/>) : (<>
               <div className="container">
                 <img src={uploadedImage} className="section-img" style={{width : "450px", margin : "0px"}} />
                 <img
@@ -189,8 +189,9 @@ export const Section1 = () => {
                   style={{width : "450px", margin : "0px"}}
                 />
               </div>
+
                   {isConverting && !isConverted ? (
-                    <img src={loadingSpinner} alt="loadingSpinner" style={{width : "100px", height: "100px", margin: '0 auto 0 auto'}}/>
+                    <img src={loadingSpinner} alt="loadingSpinner" />
                   ) : (
                     <></>
                   )}

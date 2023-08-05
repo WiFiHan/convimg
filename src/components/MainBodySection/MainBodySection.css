@@ -91,16 +91,15 @@
 
 .filebox {
   border-radius: 10px;
-  margin: 40px auto 0 auto;
+  margin: 40px 31px 0 31px;
   background-color: white;
   opacity: 0.5;
   transition: opacity 0.3s ease-out 100ms;
-  width: 418px;
-  height: 50px;
+  width: 419px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .filebox:hover {
