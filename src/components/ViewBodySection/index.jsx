@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 //import "./ViewBodySection.css";
 import "../MainBodySection/MainBodySection.css";
+import loadingSpinner from "../../../assets/gifs/loadingSpinner.gif";
 import IMG from "../../assets/images/man in front of st basil 20.jpg";
 import { preprocessImage, convertImage } from "../../apis/api";
 import { Share } from "../Share";
@@ -92,6 +93,11 @@ export const ViewBodySection = () => {
                 style={{ width: "450px", margin: "0px" }}
               />
             </div>
+            {isConverting && !isConverted ? (
+                    <img src={loadingSpinner} alt="loadingSpinner" style={{margin:'0 auto'}} />
+                  ) : (
+                    <></>
+                  )}
             <div className="container">
               <p style={{ margin: "0 200px 0" }}>before</p>
               <p style={{ margin: "0 200px 0" }}>after</p>
