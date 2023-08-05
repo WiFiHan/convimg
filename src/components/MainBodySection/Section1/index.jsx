@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { Modal } from "../../Modal";
 import "../MainBodySection.css";
 import { convertImage, preprocessImage } from "../../../apis/api";
-import loadingSpinner from "../../../assets/gifs/loadingSpinner.gif";
+import loadingSpinner from "../../../assets/gifs/loadingspinner2.gif";
 import { Share } from "../../Share";
 
 export const Section1 = () => {
@@ -179,7 +179,7 @@ export const Section1 = () => {
                 <div className="main-font">이미지 배경 변환기</div>
               </div>
 
-            {!isUploaded ? (<img src={loadingSpinner} alt="loadingSpinner" style={{margin: '0 auto 0 auto'}}/>) : (<>
+            {!isUploaded ? (<img src={loadingSpinner} alt="loadingSpinner" style={{width : "100px", height: "100px", margin: '0 auto 0 auto'}}/>) : (<>
               <div className="container">
                 <img src={uploadedImage} className="section-img" style={{width : "450px", margin : "0px"}} />
                 <img
@@ -188,9 +188,8 @@ export const Section1 = () => {
                   style={{width : "450px", margin : "0px"}}
                 />
               </div>
-
                   {isConverting && !isConverted ? (
-                    <img src={loadingSpinner} alt="loadingSpinner" />
+                    <img src={loadingSpinner} alt="loadingSpinner" style={{width : "100px", height: "100px", margin: '0 auto 0 auto'}}/>
                   ) : (
                     <></>
                   )}
