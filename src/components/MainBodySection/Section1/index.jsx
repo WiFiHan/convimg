@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { Modal } from "../../Modal";
 import "../MainBodySection.css";
 import { convertImage, preprocessImage } from "../../../apis/api";
-import loadingSpinner from "../../../assets/gifs/loadingSpinner.gif"
-import {Share} from "../../Share"
+import loadingSpinner from "../../../assets/gifs/loadingSpinner.gif";
+import { Share } from "../../Share";
 
 export const Section1 = () => {
   const [files, setFiles] = useState([]);
@@ -19,7 +19,6 @@ export const Section1 = () => {
   const [isConverting, setIsConverting] = useState(false);
   const [isConverted, setIsConverted] = useState(false);
   const [input_content, setInputContent] = useState("");
-  
 
   const handleInputChange = (e) => {
     const { value } = e.target;
@@ -55,16 +54,17 @@ export const Section1 = () => {
     const allowedExtensions = ["png", "jpeg", "jpg"];
     const fileName = file.name;
     const fileExtension = fileName.split(".").pop().toLowerCase();
-  
+
     if (!allowedExtensions.includes(fileExtension)) {
       alert("png, jpeg, jpg 확장자 파일만 업로드 가능합니다.");
       setFiles([]);
       return;
     }
-  
+
     const reader = new FileReader();
     reader.onload = async function () {
       const uploadingImage = reader.result;
+      console.log(uploadingImage);
       sessionStorage.setItem("uploadedImage", uploadingImage);
       setIsUploading(true);
       await preprocessImage(uploadingImage);
@@ -72,8 +72,8 @@ export const Section1 = () => {
       setIsUploaded(true);
     };
     reader.readAsDataURL(file);
+    console.log(reader.result);
   };
-
 
   const handleDragOver = (event) => {
     setDragging(true);
@@ -95,16 +95,13 @@ export const Section1 = () => {
   };
 
   return (
-    
     <div
       className="section"
       onDragOver={handleDragOver}
       onDrop={handleDrop}
       onDragLeave={handleDragLeave}
-      style={{margin: '50px 0 150px 0'}}
+      style={{ margin: "50px 0 150px 0" }}
     >
-      
-
       {!isUploading ? (
         <>
           <div className={Dragging ? "uploading" : "none"}>
@@ -120,7 +117,7 @@ export const Section1 = () => {
               파일을 여기에 놓으세요
             </div>
           </div>
-          <div style={{height:'340px'}}>
+          <div style={{ height: "340px" }}>
             <div className="content">
               <div className="bg-img">
                 <div>
@@ -153,71 +150,86 @@ export const Section1 = () => {
           </div>
         </>
       ) : (
-        <div style={{height:'700px'}}>
+        <div style={{ height: "700px" }}>
           <div className="content" style={{ height: "650px" }}>
             <div className="bg-img">
               <div>
                 <div className="main-font">이미지 배경 변환기</div>
               </div>
 
-            {!isUploaded ? (<img src={loadingSpinner} alt="loadingSpinner" />) : (<>
-              <div className="container">
-                <img src={uploadedImage} className="section-img" />
-                <img
-                  src={sessionStorage.getItem("mask")}
-                  className="section-img"
-                />
-              </div>
-
-              {isConverting && !isConverted ? (<img src={loadingSpinner} alt="loadingSpinner" />) : (<></>)}
-
-              <div>
-                <input
-                  type="text"
-                  id="text"
-                  className="textbox"
-                  placeholder="text prompt"
-                  onChange={handleInputChange}
-                  style={{ width: "900px" }}
-                ></input>
-              </div>
-              <div className="container">
-                <label for="file" className="label-upload">
-                  <button className="box-font filebox" style={{ width: "250px", margin: "40px auto 0 0" }} onClick={handleConvertClick}>
-                      배경 변환
-                    </button>
-                </label>
-                <label for="file" className="label-upload">
-                  <div className="box-font filebox" style={{ width: "250px" }}>
-                    마스크 수정
+              {!isUploaded ? (
+                <img src={loadingSpinner} alt="loadingSpinner" />
+              ) : (
+                <>
+                  <div className="container">
+                    <img src={uploadedImage} className="section-img" />
+                    <img
+                      src={sessionStorage.getItem("mask")}
+                      className="section-img"
+                    />
                   </div>
-                </label>
-                <input
-                  type="file"
-                  id="file"
-                  style={{ display: "none" }}
-                  onChange={handleUploadClick}
-                />
-                <label for="file" className="label-upload">
-                  <div
-                    className="box-font filebox"
-                    style={{ width: "250px", margin: "40px 0 0 auto" }}
-                  >
-                    이미지 업로드
-                  </div>
-                </label>
-                <input
-                  type="file"
-                  id="file"
-                  style={{ display: "none" }}
-                  onChange={handleUploadClick}
-                />
-              </div></>)}
 
+                  {isConverting && !isConverted ? (
+                    <img src={loadingSpinner} alt="loadingSpinner" />
+                  ) : (
+                    <></>
+                  )}
+
+                  <div>
+                    <input
+                      type="text"
+                      id="text"
+                      className="textbox"
+                      placeholder="text prompt"
+                      onChange={handleInputChange}
+                      style={{ width: "900px" }}
+                    ></input>
+                  </div>
+                  <div className="container">
+                    <label for="file" className="label-upload">
+                      <button
+                        className="box-font filebox"
+                        style={{ width: "250px", margin: "40px auto 0 0" }}
+                        onClick={handleConvertClick}
+                      >
+                        배경 변환
+                      </button>
+                    </label>
+                    <label for="file" className="label-upload">
+                      <div
+                        className="box-font filebox"
+                        style={{ width: "250px" }}
+                      >
+                        마스크 수정
+                      </div>
+                    </label>
+                    <input
+                      type="file"
+                      id="file"
+                      style={{ display: "none" }}
+                      onChange={handleUploadClick}
+                    />
+                    <label for="file" className="label-upload">
+                      <div
+                        className="box-font filebox"
+                        style={{ width: "250px", margin: "40px 0 0 auto" }}
+                      >
+                        이미지 업로드
+                      </div>
+                    </label>
+                    <input
+                      type="file"
+                      id="file"
+                      style={{ display: "none" }}
+                      onChange={handleUploadClick}
+                    />
+                  </div>
+                </>
+              )}
             </div>
           </div>
-        </div>)
-      }
+        </div>
+      )}
       <br />
       <br />
       <br />

@@ -12,7 +12,7 @@ export const KakaoShareButton = () => {
   useEffect(()=>{
       // init 해주기 전에 clean up 을 해준다.
       Kakao.cleanup();
-      // 자신의 js 키를 넣어준다.
+      // 자신의 js 키를 넣어준다. 
       Kakao.init('1fd8fac05d9b8bfb0c795184c8ec47fe'); // 카카오 API 키를 여기에 넣으세요.
       // 잘 적용되면 true 를 뱉는다.
       console.log(Kakao.isInitialized());
@@ -22,19 +22,21 @@ export const KakaoShareButton = () => {
       Kakao.Share.sendDefault({
           objectType: 'feed',
           content: {
-              title: '오늘의 디저트',
-              description: '아메리카노, 빵, 케익',
-              imageUrl:
-              'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
+              title: '배경 변환 결과',
+              description: 'ToAnywhere로 이미지 배경을 바꿔보세요!',
+            //   imageUrl:
+            //   'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
               link: {
-                  webUrl: realUrl,
+                mobileWebUrl: window.location.href,
+                webUrl: window.location.href,
               },
           },
           buttons: [
               {
                   title: '나도 테스트해보기',
                   link: {
-                      webUrl: realUrl,
+                    mobileWebUrl: window.location.href,
+                    webUrl: window.location.href,
                   },
               },
           ],
