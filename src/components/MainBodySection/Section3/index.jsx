@@ -7,7 +7,7 @@ export const Section3 = () => {
   //Each React jsx file returns HTML COMPONENTS like below
 
   return (
-    <div className='section' style={{height:'900px'}}>
+    <div className='section' style={{height:'900px', marginTop: '300px'}}>
       <div className='content'>
         <div className='main-container-2' style={{marginBottom:'100px'}}>
           <div className='temp-box'>
@@ -18,9 +18,9 @@ export const Section3 = () => {
           <div className='temp-box'>
             <img src={IMG} className="section-img" />
           </div>
-          <div >
+          {/* <div >
             <img src={IMG2} style={{ width: "50px", height:"50px", marginTop:"170px",borderRadius:"0px"}} />
-          </div>
+          </div> */}
           <div className='temp-box'>
             <img src={IMG} className="section-img" />
           </div>
@@ -34,9 +34,9 @@ export const Section3 = () => {
           <div className='temp-box'>
             <img src={IMG} className="section-img" />
           </div>
-          <div >
+          {/* <div >
             <img src={IMG2} style={{ width: "50px", height:"50px", marginTop:"170px",borderRadius:"0px"}}/>
-          </div>
+          </div> */}
           <div className='temp-box'>
             <img src={IMG} className="section-img" />
           </div>

@@ -63,7 +63,7 @@ export const ViewBodySection = () => {
   };
 
   return (
-    <div className='section'>
+    <div className='section' style={{transform: 'translate(0, -150px)'}}>
       <div style={{height:'700px'}}>
         <div className="content" style={{ height: "650px" }}>
           <div className="bg-img">
@@ -103,20 +103,11 @@ export const ViewBodySection = () => {
                 다운로드
                 </button>
               </label>
-
-              <label htmlFor="fileInput" className="label-upload">
-                <div className="box-font filebox" style={{ width: "250px" }}>
-                다른 이미지 업로드
-                </div>
+              <label for="file" className="label-upload" >
+                <button className="box-font filebox" style={{ width: "250px", margin: "40px auto 0" }} onClick={handleDownLoadClick}>
+                공유하기
+                </button>
               </label>
-              <input
-                accept="image/*"
-                multiple
-                type="file"
-                id="fileInput"
-                style={{ display: "none" }}
-                onChange={handleFileReUpload}
-              />
               <label for="file" className="label-upload">
                 <button className="box-font filebox" style={{ width: "250px", margin: "40px auto  0" }} onClick={handleReConvertClick}>
                 배경 다시 변환
