@@ -23,19 +23,19 @@ export const Section3 = () => {
               <br></br>다양한 배경으로 변환
             </p>
             <p>
-              <br></br>에펠탑, 경복궁, 콜로세움, 런던아이 등등 <br></br> 유명한
-              관광명소에 직접 가지 않아도 text를 통해 <br></br> 구체적으로
-              배경의 형태를 변경할 수 있습니다.{" "}
+              <br></br>에펠탑, 경복궁, 콜로세움 등등 <br></br> 유명한
+              관광명소에 직접 가지 않아도 <br></br> text를 통해 구체적으로 
+              배경의 형태를 <br></br> 변경할 수 있습니다.{" "}
             </p>
           </div>
           <div className="temp-box">
-            <img src={IMG4} className="section-img" />
+            <img src={IMG4} className="section-img" style={{ width: "350px", }}/>
           </div>
           {/* <div >
             <img src={IMG2} style={{ width: "50px", height:"50px", marginTop:"170px",borderRadius:"0px"}} />
           </div> */}
           <div className="temp-box">
-            <img src={IMG6} className="section-img" />
+            <img src={IMG6} className="section-img" style={{ width: "350px"}}/>
           </div>
         </div>
         <div
@@ -46,7 +46,7 @@ export const Section3 = () => {
           <p style={{ margin: "0 0px 0" }}>
             photo of woman,photo of woman, <br></br> photo of woman
           </p>
-          <p style={{ margin: "0 20px 0" }}></p>
+          <p style={{ margin: "0 60px 0" }}></p>
         </div>
         <div className="main-container-2">
           <div className="temp-box">
