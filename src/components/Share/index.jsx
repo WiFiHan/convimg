@@ -21,16 +21,6 @@ export const Share = ({ imageUrl }) => {
         <FacebookShareButton style={{ marginRight: "20px" }} url={currentUrl}>
           <FacebookIcon size={48} round={true} borderRadius={24}></FacebookIcon>
         </FacebookShareButton>
-        <FacebookMessengerShareButton
-          style={{ marginRight: "20px" }}
-          url={currentUrl}
-        >
-          <FacebookMessengerIcon
-            size={48}
-            round={true}
-            borderRadius={24}
-          ></FacebookMessengerIcon>
-        </FacebookMessengerShareButton>
         <TwitterShareButton style={{ marginRight: "20px" }} url={currentUrl}>
           <TwitterIcon size={48} round={true} borderRadius={24}></TwitterIcon>
         </TwitterShareButton>
