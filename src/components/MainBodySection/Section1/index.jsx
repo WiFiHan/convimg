@@ -234,7 +234,6 @@ export const Section1 = () => {
       <br />
       <br />
 
-      <Share convertedImage={uploadedImage}></Share>
     </div>
   );
 };

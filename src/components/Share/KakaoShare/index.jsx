@@ -2,9 +2,11 @@ import { useEffect } from "react";
 // kakao 기능 동작을 위해 넣어준다.
 const { Kakao } = window;
 
+const MAIN_URL = "http://localhost:3000"
+
 export const KakaoShareButton = () => {
   // 배포한 자신의 사이트
-  const realUrl = "http://localhost:3000";
+  const realUrl = MAIN_URL;
   // 로컬 주소 (localhost 3000 같은거)
   const resultUrl = window.location.href;
 
@@ -24,19 +26,19 @@ export const KakaoShareButton = () => {
           content: {
               title: '배경 변환 결과',
               description: 'ToAnywhere로 이미지 배경을 바꿔보세요!',
-            //   imageUrl:
-            //   'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
+              imageUrl:
+              '../../../../assets/images/img.jpg',
               link: {
-                mobileWebUrl: window.location.href,
-                webUrl: window.location.href,
+                mobileWebUrl: MAIN_URL,
+                webUrl: MAIN_URL,
               },
           },
           buttons: [
               {
                   title: '나도 테스트해보기',
                   link: {
-                    mobileWebUrl: window.location.href,
-                    webUrl: window.location.href,
+                    mobileWebUrl: MAIN_URL,
+                    webUrl: MAIN_URL,
                   },
               },
           ],

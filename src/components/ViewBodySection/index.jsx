@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./ViewBodySection.css";
 import IMG from "../../assets/images/man in front of st basil 20.jpg";
 import { preprocessImage, convertImage } from "../../apis/api";
+import {Share} from "../Share"
 
 export const ViewBodySection = () => {
   //Assign const variable uploadedImage to "before"
@@ -116,6 +117,8 @@ export const ViewBodySection = () => {
             배경 다시 변환
           </button>
         </div>
+        <Share convertedImage={uploadedImage}></Share>
+
       </div>
     </view>
   );
