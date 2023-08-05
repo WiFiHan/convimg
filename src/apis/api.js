@@ -85,6 +85,7 @@ const obtainImage = async (image, mask, prompt, api_url) => {
       "Content-Type": "application/json",
     },
     credentials: "omit",
+
   })
     .then(function (response) {
       // console.log(`I got the response`);
