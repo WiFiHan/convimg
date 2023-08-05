@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import "./ViewBodySection.css";
+//import "./ViewBodySection.css";
+import "../MainBodySection/MainBodySection.css"
 import IMG from "../../assets/images/man in front of st basil 20.jpg";
 import { preprocessImage, convertImage } from "../../apis/api";
 
@@ -62,65 +63,70 @@ export const ViewBodySection = () => {
   };
 
   return (
-    <view>
-      <div class="view-container-one">
-        <div class="temp-box">
-          <p class="font-size-30">배경 변환이 완료되었습니다.</p>
-          <br></br>
+    <div className='section'>
+      <div style={{height:'700px'}}>
+        <div className="content" style={{ height: "650px" }}>
+          <div className="bg-img">
+            <div>
+              <div className="main-font">이미지 배경 변환기</div>
+            </div>
+            <div className='container'>
+              <img 
+              src={uploadedImage} 
+              className="section-img" 
+              style={{width : "450px", margin : "0px"}}
+              />
+              <img
+              src={sessionStorage.getItem("convertedImage")}
+              className="section-img"
+              style={{width : "450px", margin : "0px"}}
+              />
+            </div>
+            <div className='container'>
+              <p style={{margin: "0 200px 0"}}>before</p>
+              <p style={{margin: "0 200px 0"}}>after</p>
+            </div>
+            <div className='container'>
+            <p>{input_prompt}</p>
+              <input
+                type="text"
+                id="text"
+                className="textbox"
+                placeholder="다른 프롬프트를 입력해보세요."
+                onChange={handleInputChange}
+                style={{ width: "900px" }}
+              />
+            </div>
+            <div className='container'>
+              <label for="file" className="label-upload" >
+                <button className="box-font filebox" style={{ width: "250px", margin: "40px auto 0" }} onClick={handleDownLoadClick}>
+                다운로드
+                </button>
+              </label>
+
+              <label htmlFor="fileInput" className="label-upload">
+                <div className="box-font filebox" style={{ width: "250px" }}>
+                다른 이미지 업로드
+                </div>
+              </label>
+              <input
+                accept="image/*"
+                multiple
+                type="file"
+                id="fileInput"
+                style={{ display: "none" }}
+                onChange={handleFileReUpload}
+              />
+              <label for="file" className="label-upload">
+                <button className="box-font filebox" style={{ width: "250px", margin: "40px auto  0" }} onClick={handleReConvertClick}>
+                배경 다시 변환
+                </button>
+              </label>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="main-container-2">
-        <div class="temp-box-3">
-          <img src={uploadedImage} className="section-img" />
-          <p>Before</p>
-        </div>
-        <div class="temp-box-3">
-          <img
-            src={sessionStorage.getItem("convertedImage")}
-            className="section-img"
-          />
-          <p>After</p>
-        </div>
-      </div>
-
-      <br></br>
-      <br></br>
-      <br></br>
-
-      <p>{input_prompt}</p>
-      <input
-        className="input-reprompt"
-        placeholder="다른 프롬프트를 입력해보세요."
-        onChange={handleInputChange}
-      />
-
-      <div class="view-container-3">
-        <div class="temp-box-3">
-          <button className="btn-download" onClick={handleDownLoadClick}>
-            다운로드
-          </button>
-        </div>
-        <div class="temp-box-3">
-          <label htmlFor="fileInput" className="btn-upload">
-            다른 이미지 업로드
-          </label>
-          <input
-            accept="image/*"
-            multiple
-            type="file"
-            id="fileInput"
-            style={{ display: "none" }}
-            onChange={handleFileReUpload}
-          />
-        </div>
-        <div class="temp-box-3">
-          <button className="btn-reconv" onClick={handleReConvertClick}>
-            배경 다시 변환
-          </button>
-        </div>
-      </div>
-    </view>
+    </div>
   );
 };
 
