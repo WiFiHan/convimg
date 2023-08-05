@@ -20,16 +20,16 @@ const Header = () => {
           </a>
         </div>
         <ul class="navbar__menu">
-          <li>
+          {/* <li>
             <i href="#"></i>로그인
           </li>
           <li>
             <i href="#"></i>회원가입
-          </li>
-          <img
+          </li> */}
+          {/* <img
             src={Toggle}
             style={{ width: "25px", height: "25px", borderRadius: "0px" }}
-          />
+          /> */}
         </ul>
       </div>
     </div>
