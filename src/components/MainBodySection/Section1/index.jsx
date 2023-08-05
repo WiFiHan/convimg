@@ -191,7 +191,7 @@ export const Section1 = () => {
               </div>
 
                   {isConverting && !isConverted ? (
-                    <img src={loadingSpinner} alt="loadingSpinner" />
+                    <img src={loadingSpinner} alt="loadingSpinner" style={{margin:'0 auto'}} />
                   ) : (
                     <></>
                   )}

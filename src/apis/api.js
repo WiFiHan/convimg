@@ -47,7 +47,7 @@ const obtainMask = async (image, api_url) => {
 };
 
 export const convertImage = async (imageSrc, mask, imageName) => {
-  const SD_URL = "https://toanywhere.xyz/predictions/segmentation/";
+  const SD_URL = "https://toanywhere.xyz/predictions/inpaint/";
 
   try {
     await obtainImage(imageSrc, mask, imageName, SD_URL);
