@@ -44,7 +44,7 @@ export const Section3 = () => {
         >
           <p style={{ margin: "0 190px 0" }}></p>
           <p style={{ margin: "0 0px 0" }}>
-            photo of woman,photo of woman, <br></br> photo of woman
+            photo of woman, <br></br> sitting in front of colosseum
           </p>
           <p style={{ margin: "0 60px 0" }}></p>
         </div>
