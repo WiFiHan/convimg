@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import IMG from "../../../assets/images/kakaoicon.png";
 // kakao 기능 동작을 위해 넣어준다.
 const { Kakao } = window;
 
@@ -53,7 +54,7 @@ export const KakaoShareButton = () => {
                   shareKakao();
               }}
           >
-              카카오톡 공유하기
+            <img src={IMG} style={{ width: "50px", height:"50px", marginRight:"20px", marginTop:"40px"}}/>
           </button>
       </>
   );

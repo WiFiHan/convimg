@@ -97,17 +97,17 @@ export const ViewBodySection = () => {
             </div>
             <div className='container'>
               <label for="file" className="label-upload" >
-                <button className="box-font filebox" style={{ width: "250px", margin: "40px auto 0" }} onClick={handleDownLoadClick}>
+                <button className="box-font filebox" style={{ width: "250px", margin: "40px 100px 0" }} onClick={handleDownLoadClick}>
                 다운로드
                 </button>
               </label>
-              <label for="file" className="label-upload" >
+              {/*<label for="file" className="label-upload" >
                 <button className="box-font filebox" style={{ width: "250px", margin: "40px auto 0" }} onClick={handleDownLoadClick}>
                 공유하기
                 </button>
-              </label>
+              </label>*/} 
               <label for="file" className="label-upload">
-                <button className="box-font filebox" style={{ width: "250px", margin: "40px auto  0" }} onClick={handleReConvertClick}>
+                <button className="box-font filebox" style={{ width: "250px", margin: "40px 100px  0" }} onClick={handleReConvertClick}>
                 배경 다시 변환
                 </button>
               </label>

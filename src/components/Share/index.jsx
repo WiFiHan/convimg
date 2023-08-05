@@ -17,7 +17,6 @@ export const Share = ({ imageUrl }) => {
     // Rendered only when propped variable: isOpen = true
     true && (
       <div>
-        This is Share Button
         <KakaoShareButton imageUrl={imageUrl}></KakaoShareButton>
         <FacebookShareButton style={{ marginRight: "20px" }} url={currentUrl}>
           <FacebookIcon size={48} round={true} borderRadius={24}></FacebookIcon>

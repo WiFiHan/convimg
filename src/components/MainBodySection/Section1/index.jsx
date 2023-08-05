@@ -181,10 +181,11 @@ export const Section1 = () => {
 
             {!isUploaded ? (<img src={loadingSpinner} alt="loadingSpinner" style={{margin: '0 auto 0 auto'}}/>) : (<>
               <div className="container">
-                <img src={uploadedImage} className="section-img" />
+                <img src={uploadedImage} className="section-img" style={{width : "450px", margin : "0px"}} />
                 <img
                   src={sessionStorage.getItem("mask")}
                   className="section-img"
+                  style={{width : "450px", margin : "0px"}}
                 />
               </div>
 
