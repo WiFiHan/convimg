@@ -66,7 +66,7 @@ export const Section4 = () => {
                   <img src={IMG12} className="section-img" />
                 </div>
                 <p className="box-font">
-                  photo of woman, standing in front of London Bridge
+                  in front of London Bridge
                 </p>
               </SwiperSlide>
               <SwiperSlide>
@@ -78,7 +78,7 @@ export const Section4 = () => {
                   <img src={IMG9} className="section-img" />
                 </div>
                 <p className="box-font">
-                  photo of woman, standing in front of Eiffel Tower
+                  in front of Eiffel Tower
                 </p>
               </SwiperSlide>
               <SwiperSlide>
@@ -90,7 +90,7 @@ export const Section4 = () => {
                   <img src={IMG3} className="section-img" />
                 </div>
                 <p className="box-font">
-                  photo of woman, standing at gwanganri beach
+                  at gwanganri beach
                 </p>
               </SwiperSlide>
             </Swiper>

@@ -200,7 +200,7 @@ export const Section1 = () => {
                   type="text"
                   id="text"
                   className="textbox"
-                  placeholder="text prompt"
+                  placeholder="Ex) in front of Eiffel Tower"
                   onChange={handleInputChange}
                   style={{ width: "900px" }}
                 ></input>
