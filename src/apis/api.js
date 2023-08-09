@@ -5,7 +5,9 @@ export const preprocessImage = async (imageSrc) => {
     await obtainMask(imageSrc, SAM_URL);
   } catch (error) {
     console.log(error);
-    alert("현재 서비스 운영시간이 아닙니다. 자세한 사항은 010-2703-9949 로 문의주세요.");
+    alert(
+      "현재 서비스 운영시간이 아닙니다. 자세한 사항은 rlwjd4177@naver.com 으로 문의주세요."
+    );
     window.location.href = "/";
   }
 
@@ -53,7 +55,9 @@ export const convertImage = async (imageSrc, mask, imageName) => {
     await obtainImage(imageSrc, mask, imageName, SD_URL);
   } catch (error) {
     console.log(error);
-    alert("현재 서비스 운영시간이 아닙니다. 자세한 사항은 010-2703-9949 로 문의주세요.");
+    alert(
+      "현재 서비스 운영시간이 아닙니다. 자세한 사항은 rlwjd4177@naver.com 으로 문의주세요."
+    );
     window.location.href = "/";
   }
 
