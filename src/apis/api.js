@@ -5,7 +5,7 @@ export const preprocessImage = async (imageSrc) => {
     await obtainMask(imageSrc, SAM_URL);
   } catch (error) {
     console.log(error);
-    alert("서버와 통신 중 오류가 발생했습니다.");
+    alert("현재 서비스 운영시간이 아닙니다. 자세한 사항은 010-2703-9949 로 문의주세요.");
     window.location.href = "/";
   }
 
@@ -53,7 +53,7 @@ export const convertImage = async (imageSrc, mask, imageName) => {
     await obtainImage(imageSrc, mask, imageName, SD_URL);
   } catch (error) {
     console.log(error);
-    alert("서버와 통신 중 오류가 발생했습니다.");
+    alert("현재 서비스 운영시간이 아닙니다. 자세한 사항은 010-2703-9949 로 문의주세요.");
     window.location.href = "/";
   }
 
